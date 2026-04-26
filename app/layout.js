@@ -25,10 +25,10 @@ export const metadata = {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon0.svg', type: 'image/svg+xml' },
-      { url: '/icon1.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon1.webp', type: 'image/webp', sizes: '32x32' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.webp', sizes: '180x180', type: 'image/webp' },
     ],
     shortcut: ['/favicon.ico'],
   },
@@ -42,7 +42,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
+        url: '/web-app-manifest-512x512.webp',
         width: 512,
         height: 512,
         alt: 'شعار شركة السمام',
@@ -53,7 +53,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'شركة السمام | Alssemam',
     description: 'شركة رائدة في تطوير مواقع الويب وتطبيقات المحمول',
-    images: ['/web-app-manifest-512x512.png'],
+    images: ['/web-app-manifest-512x512.webp'],
   },
   alternates: {
     canonical: 'https://alssemam.com',
