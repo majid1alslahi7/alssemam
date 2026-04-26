@@ -113,7 +113,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="/logo/logo.png" 
+                src="/logo/logo.webp" 
                 alt="شعار شركة السمام" 
                 className="w-10 h-10 rounded-xl object-cover border-2 border-blue-500"
               />

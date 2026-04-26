@@ -94,7 +94,7 @@ const Header = () => {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
               <img 
-                src="/logo/logo.png" 
+                src="/logo/logo.webp" 
                 alt="شعار شركة السمام" 
                 className="w-10 h-10 md:w-11 md:h-11 rounded-xl object-cover border-2 border-blue-500"
               />
@@ -164,7 +164,7 @@ const Header = () => {
             >
               <div className="sticky top-0 bg-white dark:bg-gray-900 border-b p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <img src="/logo/logo.png" alt="شعار" className="w-10 h-10 rounded-xl border-2 border-blue-500" />
+                  <img src="/logo/logo.webp" alt="شعار" className="w-10 h-10 rounded-xl border-2 border-blue-500" />
                   <div><h3 className="font-bold">شركة السمام</h3><p className="text-xs text-gray-500">alssemam.com</p></div>
                 </div>
                 <button onClick={() => setIsMenuOpen(false)} className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center"><FaTimes size={16} /></button>
