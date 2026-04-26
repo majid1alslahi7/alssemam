@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>خريطة الموقع | السَّمَام</title>
+    <meta name="robots" content="index, follow">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Cairo', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1F4E79, #4A9FE5);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #1F4E79;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        .subtitle {
+            color: #4A9FE5;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #F0F0F0;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #0A2F44;
+            margin: 25px 0 15px;
+            font-size: 1.3rem;
+            padding-right: 10px;
+            border-right: 4px solid #FF9F4A;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            margin: 12px 0;
+            padding: 8px 15px;
+            background: #F5F7FA;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            background: #E8EEF5;
+            transform: translateX(-5px);
+        }
+        a {
+            text-decoration: none;
+            color: #1F4E79;
+            font-weight: 500;
+            display: block;
+        }
+        a:hover {
+            color: #4A9FE5;
+        }
+        .url {
+            font-size: 0.7rem;
+            color: #999;
+            direction: ltr;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #E0E0E0;
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #FF9F4A;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-right: 10px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ خريطة الموقع</h1>
+        <div class="subtitle">السَّمَام | Alssemam - جميع روابط الموقع في مكان واحد</div>
+        
+        <h2>📄 الصفحات الرئيسية</h2>
+        <ul>
+            <li><a href="/">🏠 الرئيسية</a> <span class="url">https://alssemam.com/</span></li>
+            <li><a href="/#services">🛠️ الخدمات</a> <span class="url">https://alssemam.com/#services</span></li>
+            <li><a href="/#about">🏢 من نحن</a> <span class="url">https://alssemam.com/#about</span></li>
+            <li><a href="/#portfolio">📂 أعمالنا</a> <span class="url">https://alssemam.com/#portfolio</span></li>
+            <li><a href="/#contact">📞 اتصل بنا</a> <span class="url">https://alssemam.com/#contact</span></li>
+        </ul>
+        
+        <h2>🤖 ملفات الذكاء الاصطناعي (AI)</h2>
+        <ul>
+            <li><a href="/llms.txt">📄 llms.txt</a> <span class="badge">AI</span> <span class="url">https://alssemam.com/llms.txt</span></li>
+            <li><a href="/llms-full.txt">📄 llms-full.txt</a> <span class="badge">AI</span> <span class="url">https://alssemam.com/llms-full.txt</span></li>
+            <li><a href="/llms-info.html">ℹ️ معلومات llms</a> <span class="url">https://alssemam.com/llms-info.html</span></li>
+        </ul>
+        
+        <h2>⚙️ ملفات النظام</h2>
+        <ul>
+            <li><a href="/robots.txt">🤖 robots.txt</a> <span class="url">https://alssemam.com/robots.txt</span></li>
+            <li><a href="/sitemap.xml">🗺️ sitemap.xml</a> <span class="url">https://alssemam.com/sitemap.xml</span></li>
+            <li><a href="/sitemap.html">🗺️ sitemap.html</a> <span class="url">https://alssemam.com/sitemap.html</span></li>
+            <li><a href="/manifest.json">📱 manifest.json</a> <span class="url">https://alssemam.com/manifest.json</span></li>
+        </ul>
+        
+        <h2>📱 ملفات PWA</h2>
+        <ul>
+            <li><a href="/sw.js">⚡ Service Worker</a> <span class="url">https://alssemam.com/sw.js</span></li>
+        </ul>
+        
+        <h2>🔗 الروابط السريعة</h2>
+        <ul>
+            <li><a href="https://instagram.com/alssemam" target="_blank">📷 Instagram</a></li>
+            <li><a href="https://twitter.com/alssemam" target="_blank">🐦 X (Twitter)</a></li>
+            <li><a href="https://facebook.com/alssemam" target="_blank">📘 Facebook</a></li>
+            <li><a href="https://linkedin.com/company/alssemam" target="_blank">💼 LinkedIn</a></li>
+            <li><a href="https://wa.me/967715122500" target="_blank">💬 WhatsApp</a></li>
+            <li><a href="mailto:info@alssemam.com">📧 البريد الإلكتروني</a></li>
+        </ul>
+        
+        <div class="footer">
+            <p>© 2026 السَّمَام - Alssemam. جميع الحقوق محفوظة</p>
+            <p>آخر تحديث: 4 أبريل 2026</p>
+        </div>
+    </div>
+</body>
+</html>

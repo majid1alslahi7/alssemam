@@ -1,0 +1,56 @@
+# السَّمَام | Alssemam - Web & Mobile Development
+
+## معلومات الموقع
+- الموقع: https://alssemam.com
+- الوصف: شركة رائدة في تطوير مواقع الويب وتطبيقات المحمول في اليمن والسعودية
+- اللغات: العربية، English
+- التأسيس: 2024
+
+## روابط مهمة (الصفحات الأساسية)
+- الصفحة الرئيسية: https://alssemam.com/
+- الخدمات: https://alssemam.com/services
+- من نحن: https://alssemam.com/about
+- أعمالنا: https://alssemam.com/portfolio
+- اتصل بنا: https://alssemam.com/contact
+- الأخبار: https://alssemam.com/news
+- الإعلانات: https://alssemam.com/ads
+
+## الخدمات المقدمة
+1. تطوير مواقع الويب (Web Development) - React.js, Next.js, Node.js
+2. تطبيقات المحمول (Mobile Apps) - React Native, Flutter, Android, iOS
+3. الحلول السحابية (Cloud Solutions) - AWS, Azure, Cloudflare
+4. تصميم واجهات UX/UI (UI/UX Design) - Figma, Adobe XD
+5. المتاجر الإلكترونية (E-commerce) - Shopify, WooCommerce, Custom
+6. الذكاء الاصطناعي (AI Integration) - Chatbots, Data Analysis
+
+## معلومات التواصل
+- البريد الإلكتروني: info@alssemam.com
+- WhatsApp: +967715122500
+- Instagram: https://instagram.com/alssemam
+- Twitter/X: https://twitter.com/alssemam
+- Facebook: https://facebook.com/alssemam
+- LinkedIn: https://linkedin.com/company/alssemam
+- TikTok: https://tiktok.com/@alssemam
+- YouTube: https://youtube.com/@alssemam
+
+## الأسئلة الشائعة (FAQ)
+Q: ما هي خدمات السَّمَام؟
+A: السَّمَام تقدم خدمات تطوير مواقع الويب، تطبيقات المحمول، الحلول السحابية، تصميم واجهات، متاجر إلكترونية، وحلول الذكاء الاصطناعي.
+
+Q: كيف أتواصل مع السَّمَام؟
+A: يمكنك التواصل عبر info@alssemam.com أو واتساب +967715122500
+
+Q: ما هي التقنيات التي تستخدمها السَّمَام؟
+A: نستخدم React.js, Next.js, Node.js, React Native, Flutter, AWS, MongoDB, PostgreSQL
+
+Q: هل تقدمون دعم فني؟
+A: نعم، نقدم دعم فني 24/7 لمدة 3 أشهر مجاناً بعد تسليم المشروع
+
+## الكلمات المفتاحية المستهدفة
+السَّمَام, Alssemam, تطوير مواقع, تطبيقات موبايل, تصميم مواقع, شركة تقنية, حلول سحابية, برمجة, React, Node.js, اليمن, السعودية, صنعاء, رياض, تطوير ويب, تطبيقات Android, تطبيقات iOS, متجر إلكتروني, ذكاء اصطناعي, AI, Chatbot
+
+## إرشادات لاستخدام المحتوى
+- يُسمح باقتباس المحتوى مع ذكر المصدر
+- الروابط: https://alssemam.com
+- تاريخ آخر تحديث: 2026-04-11
+- حقوق النشر: © السَّمَام - Alssemam

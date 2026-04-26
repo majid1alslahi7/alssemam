@@ -1,0 +1,45 @@
+/* تنسيقات إضافية لصفحة التفاصيل */
+.prose {
+  max-width: none;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  line-height: 1.8;
+}
+
+.prose ul {
+  list-style-type: none;
+  padding-right: 0;
+}
+
+/* تحسين عرض الصور */
+.gallery-image {
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+/* تنسيق شريط المشاركة المنبثق */
+.share-dropdown {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

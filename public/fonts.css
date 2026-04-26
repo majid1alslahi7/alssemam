@@ -1,0 +1,184 @@
+/* ===== الخطوط العربية ===== */
+
+/* IBM Plex Sans Arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/arabic/IBMPlexSansArabic-Bold.ttf') format('truetype');
+}
+
+/* GE SS Unique */
+@font-face {
+  font-family: 'GE SS Unique';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/arabic/GE%20SS%20Unique%20Bold.otf') format('opentype');
+}
+
+/* ===== الخطوط الإنجليزية ===== */
+
+/* Circle Rounded */
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_extra_light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Circle Rounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/english/circle_rounded_extra_bold.otf') format('opentype');
+}
+
+/* Linaround */
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/english/linaround_thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/english/linaround_extra_light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/english/linaround_light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/english/linaround_regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/english/linaround_semi_bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Linaround';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/english/linaround_bold.otf') format('opentype');
+}
+
+/* ===== متغيرات الخطوط الرئيسية ===== */
+:root {
+  --font-arabic: 'IBM Plex Sans Arabic', 'GE SS Unique', 'Cairo', -apple-system, sans-serif;
+  --font-english: 'Circle Rounded', 'Linaround', 'Poppins', -apple-system, sans-serif;
+  --font-logo: 'GE SS Unique', 'IBM Plex Sans Arabic', sans-serif;
+  --font-heading: 'IBM Plex Sans Arabic', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Circle Rounded', sans-serif;
+}
+
+body {
+  font-family: var(--font-arabic);
+}
+
+.english-text, [lang="en"], .domain {
+  font-family: var(--font-english);
+}
