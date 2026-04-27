@@ -1,4 +1,6 @@
 "use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 import { useState } from "react";
 import {
   FaCode,
@@ -248,17 +250,111 @@ import {
 export default function AIReadyFAQ() {
   const [open, setOpen] = useState(null);
 
-  return (
-    <section>
-      {faqs.map((faq, i) => (
-        <div key={faq.id}>
-          <button onClick={() => setOpen(open === i ? null : i)}>
-            {faq.icon} {faq.question}
-          </button>
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
-          {open === i && <p>{faq.answer}</p>}
+  return (
+    <section className="relative py-20 bg-gradient-to-b from-white via-slate-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
+        >
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-semibold mb-5">
+            <FaQuestionCircle />
+            <span>الأسئلة الشائعة</span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            إجابات ذكية حول شركة السمام
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 leading-8">
+            أسئلة مهيأة لمحركات البحث ونماذج الذكاء الاصطناعي مثل ChatGPT و DeepSeek و Google AI.
+          </p>
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((faq, i) => {
+            const isOpen = open === i;
+
+            return (
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: Math.min(i * 0.03, 0.35) }}
+                className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className="w-full flex items-center justify-between gap-4 p-5 text-right"
+                >
+                  <span className="flex items-center gap-4">
+                    <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 shrink-0">
+                      {faq.icon}
+                    </span>
+
+                    <span className="font-bold text-gray-900 dark:text-white text-base md:text-lg leading-8">
+                      {faq.question}
+                    </span>
+                  </span>
+
+                  <motion.span
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-gray-400 shrink-0"
+                  >
+                    <FaChevronDown />
+                  </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 pr-20 text-gray-600 dark:text-gray-300 leading-8 border-t border-gray-100 dark:border-gray-800 pt-4">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
-      ))}
+      </div>
     </section>
   );
 }
