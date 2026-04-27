@@ -21,6 +21,8 @@ async function getArticle(slug) {
     .select("*")
     .eq("slug", realSlug)
     .eq("is_published", true)
+      .eq("slug", decodedSlug) // 👈 هذا هو المهم
+
     .maybeSingle();
 
   if (error || !data) return null;
