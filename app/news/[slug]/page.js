@@ -13,29 +13,46 @@ function cleanText(text = "") {
     .trim();
 }
 
+function safeDecode(value = "") {
+  try {
+    return decodeURIComponent(String(value));
+  } catch {
+    return String(value);
+  }
+}
+
 async function getArticle(slug) {
-  const realSlug = Array.isArray(slug) ? slug[0] : slug;
+  const decodedSlug = safeDecode(slug);
 
-  const { data, error } = await supabase
-    .from("articles")
-    .select("*")
-    .eq("slug", realSlug)
-    .eq("is_published", true)
-      .eq("slug", decodedSlug) // 👈 هذا هو المهم
+  try {
+    const { data, error } = await supabase
+      .from("articles")
+      .select("*")
+      .eq("slug", decodedSlug)
+      .eq("is_published", true)
+      .maybeSingle();
 
-    .maybeSingle();
+    if (error) {
+      console.error("Supabase article error:", error.message);
+      return null;
+    }
 
-  if (error || !data) return null;
-  return data;
+    return data;
+  } catch (error) {
+    console.error("getArticle failed:", error);
+    return null;
+  }
 }
 
 export async function generateMetadata({ params }) {
-  const article = await getArticle(params.slug);
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+
+  const article = await getArticle(slug);
 
   if (!article) {
     return {
       title: "المقال غير موجود | السمام نيوز",
-      description: "المقال المطلوب غير متوفر حالياً.",
       robots: {
         index: false,
         follow: false,
@@ -43,7 +60,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const url = `${baseUrl}/news/${article.slug}`;
+  const url = `${baseUrl}/news/${encodeURIComponent(article.slug)}`;
   const title = `${article.title} | السمام نيوز`;
   const description =
     article.excerpt ||
@@ -65,10 +82,6 @@ export async function generateMetadata({ params }) {
       type: "article",
       siteName: "السمام نيوز",
       locale: "ar_AR",
-      publishedTime: article.published_at || article.created_at,
-      modifiedTime:
-        article.updated_at || article.published_at || article.created_at,
-      authors: [article.author || "شركة السمام"],
       images: [
         {
           url: image,
@@ -99,7 +112,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const article = await getArticle(params.slug);
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+
+  const article = await getArticle(slug);
 
   if (!article) {
     return (
@@ -110,64 +126,67 @@ export default async function Page({ params }) {
     );
   }
 
-  const url = `${baseUrl}/news/${article.slug}`;
+  const url = `${baseUrl}/news/${encodeURIComponent(article.slug)}`;
   const image = article.image || `${baseUrl}/logo/logo.webp`;
+
   const description =
     article.excerpt ||
     cleanText(article.content).slice(0, 160) ||
     "مقال تقني من السمام نيوز.";
 
-  const articleSchema = {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description,
-    image,
-    url,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": url,
-    },
-    datePublished: article.published_at || article.created_at,
-    dateModified:
-      article.updated_at || article.published_at || article.created_at,
-    inLanguage: "ar",
-    author: {
-      "@type": "Organization",
-      name: article.author || "شركة السمام",
-      url: baseUrl,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "السمام نيوز",
-      logo: {
-        "@type": "ImageObject",
-        url: `${baseUrl}/logo/logo.webp`,
-      },
-    },
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
+    "@graph": [
       {
-        "@type": "ListItem",
-        position: 1,
-        name: "الرئيسية",
-        item: baseUrl,
+        "@type": "Article",
+        headline: article.title,
+        description,
+        image,
+        url,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": url,
+        },
+        datePublished: article.published_at || article.created_at,
+        dateModified:
+          article.updated_at || article.published_at || article.created_at,
+        inLanguage: "ar",
+        author: {
+          "@type": "Organization",
+          name: article.author || "شركة السمام",
+          url: baseUrl,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "السمام نيوز",
+          logo: {
+            "@type": "ImageObject",
+            url: `${baseUrl}/logo/logo.webp`,
+          },
+        },
       },
       {
-        "@type": "ListItem",
-        position: 2,
-        name: "السمام نيوز",
-        item: `${baseUrl}/news`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: article.title,
-        item: url,
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "الرئيسية",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "السمام نيوز",
+            item: `${baseUrl}/news`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: article.title,
+            item: url,
+          },
+        ],
       },
     ],
   };
@@ -176,12 +195,9 @@ export default async function Page({ params }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
       />
 
       <ArticleClient article={article} />
