@@ -1,85 +1,111 @@
-import { supabase } from '@/services/supabase';
+import { supabase } from "@/services/supabase";
+
+export const revalidate = 3600;
 
 export default async function sitemap() {
-  const baseUrl = 'https://alssemam.com';
+  const baseUrl = "https://alssemam.com";
+  const now = new Date();
 
-  // الصفحات الثابتة الأساسية
   const staticRoutes = [
     {
       url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1.0,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/ads`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
+      lastModified: now,
+      changeFrequency: "daily",
       priority: 0.7,
     },
   ];
 
   try {
-    // جلب المشاريع من قاعدة البيانات
-    const { data: projects } = await supabase
-      .from('projects')
-      .select('slug, updated_at');
+    const { data: projects, error: projectsError } = await supabase
+      .from("projects")
+      .select("slug, updated_at")
+      .not("slug", "is", null);
 
-    const projectRoutes = projects?.map((project) => ({
-      url: `${baseUrl}/project/${project.slug}`,
-      lastModified: new Date(project.updated_at || new Date()),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    })) || [];
+    if (projectsError) throw projectsError;
 
-    // جلب المقالات من قاعدة البيانات
-    const { data: articles } = await supabase
-      .from('articles')
-      .select('slug, updated_at')
-      .eq('is_published', true);
+    const projectRoutes =
+      projects?.map((project) => ({
+        url: `${baseUrl}/project/${project.slug}`,
+        lastModified: project.updated_at
+          ? new Date(project.updated_at)
+          : now,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      })) || [];
 
-    const articleRoutes = articles?.map((article) => ({
-      url: `${baseUrl}/news/${article.slug}`,
-      lastModified: new Date(article.updated_at || new Date()),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    })) || [];
+    const { data: articles, error: articlesError } = await supabase
+      .from("articles")
+      .select("slug, updated_at")
+      .eq("is_published", true)
+      .not("slug", "is", null);
 
-    // جلب الإعلانات من قاعدة البيانات
-    const { data: ads } = await supabase
-      .from('classified_ads')
-      .select('slug, updated_at')
-      .eq('status', 'active');
+    if (articlesError) throw articlesError;
 
-    const adRoutes = ads?.map((ad) => ({
-      url: `${baseUrl}/ads/${ad.slug}`,
-      lastModified: new Date(ad.updated_at || new Date()),
-      changeFrequency: 'daily',
-      priority: 0.6,
-    })) || [];
+    const articleRoutes =
+      articles?.map((article) => ({
+        url: `${baseUrl}/news/${article.slug}`,
+        lastModified: article.updated_at
+          ? new Date(article.updated_at)
+          : now,
+        changeFrequency: "weekly",
+        priority: 0.8,
+      })) || [];
 
-    // دمج جميع المسارات
+    const { data: ads, error: adsError } = await supabase
+      .from("classified_ads")
+      .select("slug, updated_at")
+      .eq("status", "active")
+      .not("slug", "is", null);
+
+    if (adsError) throw adsError;
+
+    const adRoutes =
+      ads?.map((ad) => ({
+        url: `${baseUrl}/ads/${ad.slug}`,
+        lastModified: ad.updated_at ? new Date(ad.updated_at) : now,
+        changeFrequency: "daily",
+        priority: 0.6,
+      })) || [];
+
     return [...staticRoutes, ...projectRoutes, ...articleRoutes, ...adRoutes];
   } catch (error) {
-    console.error('Error generating sitemap:', error);
+    console.error("Sitemap error:", error);
     return staticRoutes;
   }
 }

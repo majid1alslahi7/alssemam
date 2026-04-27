@@ -6,7 +6,7 @@ import { FaCog, FaSave, FaGlobe, FaPalette, FaUserCog } from 'react-icons/fa';
 
 export default function AdminSettingsPage() {
   const [saving, setSaving] = useState(false);
-  const [settings, setSettings] = useState({ siteName: 'السَّمَام', siteEmail: 'info@alssemam.com', sitePhone: '+967 715122500' });
+  const [settings, setSettings] = useState({ siteName: 'شركة السمام', siteEmail: 'info@alssemam.com', sitePhone: '+967 715122500' });
 
   const handleSubmit = (e) => { e.preventDefault(); setSaving(true); setTimeout(() => { setSaving(false); alert('تم حفظ الإعدادات بنجاح'); }, 1000); };
 

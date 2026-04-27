@@ -168,7 +168,7 @@ export default function ServicesPage() {
 
       <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">لماذا تختار السَّمَام؟</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">لماذا تختار شركة السمام؟</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-4">

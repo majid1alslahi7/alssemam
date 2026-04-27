@@ -1,31 +1,104 @@
-# SEO - السَّمَام
+# robots.txt - Alssemam
+# https://alssemam.com
+
+########################################
+# 🌐 القواعد العامة لمحركات البحث
+########################################
+
 User-agent: *
 Allow: /
+
+# مناطق خاصة
 Disallow: /admin/
 Disallow: /admin/login
 Disallow: /api/
 Disallow: /private/
+
+# خريطة الموقع
 Sitemap: https://alssemam.com/sitemap.xml
 
-# روبوتات الذكاء الاصطناعي
+########################################
+# 🤖 OpenAI (ChatGPT / GPTBot)
+########################################
+
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+########################################
+# 🤖 Anthropic (Claude)
+########################################
+
 User-agent: ClaudeBot
 Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+########################################
+# 🤖 Perplexity AI
+########################################
 
 User-agent: PerplexityBot
 Allow: /
 
+########################################
+# 🤖 Google AI
+########################################
+
 User-agent: Google-Extended
 Allow: /
+
+########################################
+# 🤖 Apple AI
+########################################
 
 User-agent: Applebot-Extended
 Allow: /
 
-# إعدادات إضافية
-Crawl-delay: 1
-Host: https://alssemam.com
+########################################
+# 🤖 DeepSeek
+########################################
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: DeepSeek
+Allow: /
+
+########################################
+# 🤖 Bots عامة (AI / Crawlers)
+########################################
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+########################################
+# ✅ ملاحظات
+########################################
+# - جميع الصفحات متاحة للفهرسة
+# - API والإدارة محجوبة
+# - الموقع مهيأ للـ SEO و AI

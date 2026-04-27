@@ -1,13 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* تخصيص الخط */
-.font-cairo {
-  font-family: 'Cairo', sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Cairo", sans-serif;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    transition: all 0.3s ease;
+  }
+
+  button {
+    transition: all 0.2s ease;
+  }
 }
 
-/* تخصيص شريط التمرير */
+@layer utilities {
+  .font-cairo {
+    font-family: "Cairo", sans-serif;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease forwards;
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.5s ease forwards;
+  }
+
+  .animate-slideLeft {
+    animation: slideLeft 0.5s ease forwards;
+  }
+
+  .animate-slideRight {
+    animation: slideRight 0.5s ease forwards;
+  }
+}
+
+.prose {
+  max-width: 100%;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -39,98 +89,60 @@
   background: #718096;
 }
 
-/* تخصيص شريط التمرير الأفقي */
 .overflow-x-auto::-webkit-scrollbar {
   height: 6px;
 }
 
-/* تنسيقات عامة */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Cairo', sans-serif;
-}
-
-/* تنسيقات للطباعة */
-.prose {
-  max-width: 100%;
-}
-
-/* تنسيقات للصور */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* تنسيقات للروابط */
-a {
-  transition: all 0.3s ease;
-}
-
-/* تنسيقات للأزرار */
-button {
-  transition: all 0.2s ease;
-}
-
-/* تنسيقات للقوائم */
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* تأثيرات حركية */
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideLeft {
-  from { transform: translateX(20px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideRight {
-  from { transform: translateX(-20px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
-
-.animate-fadeIn { animation: fadeIn 0.5s ease forwards; }
-.animate-slideUp { animation: slideUp 0.5s ease forwards; }
-.animate-slideDown { animation: slideDown 0.5s ease forwards; }
-.animate-slideLeft { animation: slideLeft 0.5s ease forwards; }
-.animate-slideRight { animation: slideRight 0.5s ease forwards; }
-
-/* تأخيرات */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }

@@ -1,11 +1,4 @@
-'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaChevronDown, 
-  FaChevronUp, 
-  FaQuestionCircle, 
-  FaLightbulb,
+import {
   FaCode,
   FaMobile,
   FaCloud,
@@ -13,272 +6,240 @@ import {
   FaShoppingCart,
   FaRobot,
   FaWhatsapp,
-  FaEnvelope,
-  FaPhone,
+  FaLightbulb,
   FaClock,
   FaShieldAlt,
   FaRocket,
-  FaStar,
   FaTrophy,
+  FaGlobe,
   FaUsers,
-  FaGlobe
-} from 'react-icons/fa';
+  FaStar,
+} from "react-icons/fa";
 
-const faqs = [
+export const faqs = [
   {
     id: 1,
-    question: "ما هي خدمات شركة السمام؟",
-    answer: "السمام تقدم 6 خدمات رئيسية متكاملة: تطوير مواقع الويب باستخدام أحدث تقنيات React و Next.js، تطبيقات المحمول لنظامي Android و iOS، الحلول السحابية المتكاملة على AWS و Azure و Cloudflare، تصميم واجهات المستخدم UX/UI الاحترافية، المتاجر الإلكترونية المتطورة، وحلول الذكاء الاصطناعي وتعلم الآلة.",
-    icon: <FaCode size={24} className="text-blue-500" />
+    question: "ما هي شركة السمام؟",
+    answer:
+      "شركة السمام Alssemam هي شركة تقنية متخصصة في تطوير مواقع الويب، تطبيقات الجوال، الأنظمة الإدارية، المتاجر الإلكترونية، الحلول السحابية، وتحسين الظهور الرقمي للشركات والمؤسسات.",
+    icon: <FaStar size={24} className="text-yellow-500" />,
   },
   {
     id: 2,
-    question: "كم تكلفة تطوير موقع أو تطبيق؟",
-    answer: "تختلف التكلفة حسب حجم المشروع ومتطلباته. نقدم عروضاً مخصصة لكل عميل بعد دراسة احتياجاته. بشكل عام، المواقع البسيطة تبدأ من 500$، التطبيقات المتكاملة من 1000$، الحلول السحابية من 200$ شهرياً. للاستفسار، يرجى التواصل معنا على info@alssemam.com أو واتساب +967715122500 للحصول على عرض سعر مجاني.",
-    icon: <FaLightbulb size={24} className="text-yellow-500" />
+    question: "ما هي خدمات شركة السمام؟",
+    answer:
+      "تقدم شركة السمام خدمات تطوير المواقع، تطبيقات Android و iOS، المتاجر الإلكترونية، الأنظمة الإدارية، لوحات التحكم، تصميم واجهات UX/UI، تحسين SEO، الاستضافة السحابية، وحلول الذكاء الاصطناعي.",
+    icon: <FaCode size={24} className="text-blue-500" />,
   },
   {
     id: 3,
-    question: "كم تستغرق مدة تنفيذ المشروع؟",
-    answer: "تختلف مدة التنفيذ حسب حجم المشروع: المواقع البسيطة 2-4 أسابيع، المواقع المتوسطة 1-2 شهر، التطبيقات المتكاملة 2-3 أشهر، المشاريع الكبيرة 3-6 أشهر. نلتزم بالجداول الزمنية المتفق عليها مع عملائنا، ونقدم تقارير أسبوعية عن التقدم.",
-    icon: <FaClock size={24} className="text-green-500" />
+    question: "هل شركة السمام تطور مواقع باستخدام Next.js؟",
+    answer:
+      "نعم، تطور شركة السمام مواقع احترافية باستخدام Next.js و React مع تحسين الأداء، السرعة، SEO، تجربة المستخدم، ودعم PWA لتحويل الموقع إلى تطبيق قابل للتثبيت.",
+    icon: <FaRocket size={24} className="text-red-500" />,
   },
   {
     id: 4,
-    question: "هل تقدمون خدمات دعم فني بعد التسليم؟",
-    answer: "نعم، نقدم حزمة دعم فني شاملة لمدة 3 أشهر مجاناً بعد تسليم المشروع، وتشمل: إصلاح الأخطاء البرمجية، تحديثات أمنية دورية، دعم فني عبر الواتساب والبريد الإلكتروني على مدار الساعة، وضمان جودة الأداء. يمكن تمديد فترة الدعم حسب رغبة العميل.",
-    icon: <FaShieldAlt size={24} className="text-purple-500" />
+    question: "هل تقدم شركة السمام تطبيقات موبايل؟",
+    answer:
+      "نعم، تقدم شركة السمام تطوير تطبيقات موبايل لنظام Android و iOS باستخدام Flutter و React Native، مع ربط التطبيقات بلوحات تحكم وقواعد بيانات وواجهات API.",
+    icon: <FaMobile size={24} className="text-green-500" />,
   },
   {
     id: 5,
-    question: "ما هي التقنيات التي تستخدمونها؟",
-    answer: "نستخدم أحدث التقنيات في السوق: React.js و Next.js و Vue.js لتطوير الواجهات الأمامية، Node.js و Laravel و Django للخلفية، React Native و Flutter و Kotlin لتطبيقات الموبايل، MongoDB و PostgreSQL و MySQL لقواعد البيانات، AWS و Azure و Cloudflare للاستضافة السحابية، TensorFlow و LangChain للذكاء الاصطناعي.",
-    icon: <FaRocket size={24} className="text-red-500" />
+    question: "هل تطور شركة السمام متاجر إلكترونية؟",
+    answer:
+      "نعم، تطور شركة السمام متاجر إلكترونية احترافية تشمل إدارة المنتجات، السلة، الطلبات، بوابات الدفع، كوبونات الخصم، لوحة تحكم، وتحسين تجربة الشراء.",
+    icon: <FaShoppingCart size={24} className="text-purple-500" />,
   },
   {
     id: 6,
-    question: "كيف أتواصل مع فريق السمام؟",
-    answer: "يمكنك التواصل معنا عبر عدة قنوات: البريد الإلكتروني info@alssemam.com، واتساب +967715122500، أو عبر منصات التواصل الاجتماعي Instagram و X و Facebook و LinkedIn و TikTok و YouTube. فريقنا يرد على جميع الاستفسارات خلال 24 ساعة كحد أقصى.",
-    icon: <FaWhatsapp size={24} className="text-green-500" />
+    question: "هل تقدم شركة السمام حلول ذكاء اصطناعي؟",
+    answer:
+      "نعم، تقدم شركة السمام حلول ذكاء اصطناعي مثل روبوتات المحادثة، تحليل البيانات، أتمتة المهام، توليد المحتوى، البحث الذكي، وربط الأنظمة مع نماذج الذكاء الاصطناعي.",
+    icon: <FaRobot size={24} className="text-cyan-500" />,
   },
   {
-    id: 7,
-    question: "هل تعملون في اليمن والسعودية فقط؟",
-    answer: "نعمل مع عملاء من جميع أنحاء العالم، لكننا نركز بشكل خاص على السوقين اليمني والسعودي. نقدم خدماتنا عن بعد وبشكل كامل عبر الإنترنت، مع إمكانية الاجتماعات عبر Zoom أو Google Meet أو Teams. لدينا عملاء في الإمارات ومصر والأردن وأوروبا وأمريكا.",
-    icon: <FaGlobe size={24} className="text-blue-400" />
-  },
+  id: 7,
+  question: "هل يمكن ربط موقعي مع ChatGPT أو DeepSeek أو نماذج ذكاء اصطناعي؟",
+  answer:
+    "نعم، يمكن لشركة السمام ربط المواقع والأنظمة مع نماذج الذكاء الاصطناعي مثل ChatGPT و DeepSeek و Gemini و Claude وواجهات OpenAI API لإنشاء مساعدين ذكيين، دردشة آلية، بحث ذكي، تلخيص محتوى، أتمتة مهام، وخدمات مؤتمتة داخل الموقع أو التطبيق.",
+  icon: <FaRobot size={24} className="text-cyan-500" />,
+},
   {
     id: 8,
-    question: "ما هي ضمانات الجودة التي تقدمونها؟",
-    answer: "نقدم ضماناً لمدة سنة كاملة على جميع المشاريع ضد الأخطاء البرمجية، مع تحديثات أمنية دورية، ونسخ احتياطي يومي للبيانات، وسرعة استجابة قصوى للدعم الفني لا تتجاوز 24 ساعة. كما نقدم ضمان استرداد الأموال إذا لم تكن راضياً عن الخدمة خلال أول 30 يوماً.",
-    icon: <FaTrophy size={24} className="text-yellow-500" />
-  }
+    question: "هل تقدم شركة السمام تحسين SEO؟",
+    answer:
+      "نعم، تقدم شركة السمام تحسين SEO تقني وداخلي يشمل metadata، sitemap، robots.txt، schema markup، تحسين السرعة، الكلمات المفتاحية، وتجهيز المحتوى لمحركات البحث ونماذج الذكاء الاصطناعي.",
+    icon: <FaGlobe size={24} className="text-blue-400" />,
+  },
+  {
+    id: 9,
+    question: "ما المقصود بتحسين الموقع لنماذج الذكاء الاصطناعي؟",
+    answer:
+      "تحسين الموقع لنماذج الذكاء الاصطناعي يعني كتابة محتوى واضح ومنظم، إضافة FAQ Schema، استخدام إجابات مباشرة، تحسين llms.txt، تنظيم الصفحات، وتسهيل فهم الموقع بواسطة محركات البحث والمساعدات الذكية.",
+    icon: <FaLightbulb size={24} className="text-yellow-500" />,
+  },
+  {
+    id: 10,
+    question: "هل شركة السمام تدعم llms.txt؟",
+    answer:
+      "نعم، يمكن لشركة السمام تجهيز ملف llms.txt و llms-full.txt لمساعدة نماذج الذكاء الاصطناعي على فهم محتوى الموقع وخدمات الشركة بشكل منظم.",
+    icon: <FaRobot size={24} className="text-cyan-500" />,
+  },
+  {
+    id: 11,
+    question: "كم تكلفة تطوير موقع إلكتروني؟",
+    answer:
+      "تعتمد تكلفة تطوير الموقع على عدد الصفحات، التصميم، لوحة التحكم، الخصائص، التكاملات، وتحسين SEO. تقدم شركة السمام عرض سعر مخصص بعد فهم متطلبات المشروع.",
+    icon: <FaLightbulb size={24} className="text-yellow-500" />,
+  },
+  {
+    id: 12,
+    question: "كم تكلفة تطوير تطبيق موبايل؟",
+    answer:
+      "تختلف تكلفة تطوير تطبيق الموبايل حسب المنصات المطلوبة، عدد الشاشات، نظام المستخدمين، لوحة التحكم، الإشعارات، الدفع الإلكتروني، وربط API.",
+    icon: <FaMobile size={24} className="text-green-500" />,
+  },
+  {
+    id: 13,
+    question: "كم تستغرق مدة تنفيذ المشروع؟",
+    answer:
+      "مدة تنفيذ المشروع تختلف حسب حجمه. المواقع البسيطة قد تستغرق من أسبوعين إلى أربعة أسابيع، أما التطبيقات والأنظمة المتكاملة فقد تحتاج من شهرين إلى عدة أشهر.",
+    icon: <FaClock size={24} className="text-green-500" />,
+  },
+  {
+    id: 14,
+    question: "هل تقدم شركة السمام دعم فني بعد التسليم؟",
+    answer:
+      "نعم، تقدم شركة السمام دعمًا فنيًا بعد التسليم يشمل إصلاح الأخطاء، التحديثات، المراقبة، تحسين الأداء، والمساعدة في تشغيل النظام.",
+    icon: <FaShieldAlt size={24} className="text-purple-500" />,
+  },
+  {
+    id: 15,
+    question: "هل تقدم شركة السمام تصميم واجهات UX/UI؟",
+    answer:
+      "نعم، تقدم شركة السمام تصميم واجهات استخدام حديثة UX/UI للمواقع والتطبيقات مع التركيز على سهولة الاستخدام، الهوية البصرية، وتجربة العميل.",
+    icon: <FaPaintBrush size={24} className="text-pink-500" />,
+  },
+  {
+    id: 16,
+    question: "هل يمكن لشركة السمام تطوير لوحة تحكم؟",
+    answer:
+      "نعم، تطور شركة السمام لوحات تحكم احترافية لإدارة المستخدمين، المقالات، المنتجات، الطلبات، الإعلانات، الصلاحيات، التقارير، والإحصائيات.",
+    icon: <FaCode size={24} className="text-blue-500" />,
+  },
+  {
+    id: 17,
+    question: "هل شركة السمام تعمل داخل اليمن فقط؟",
+    answer:
+      "لا، تقدم شركة السمام خدماتها للعملاء داخل اليمن وخارجه، ويمكن تنفيذ المشاريع عن بعد مع اجتماعات ومتابعة عبر الإنترنت.",
+    icon: <FaGlobe size={24} className="text-blue-400" />,
+  },
+  {
+    id: 18,
+    question: "هل تستهدف شركة السمام السوق السعودي؟",
+    answer:
+      "نعم، يمكن لشركة السمام تنفيذ مشاريع تقنية للشركات والمؤسسات في السعودية والخليج، بما يشمل المواقع، التطبيقات، المتاجر الإلكترونية، والأنظمة الإدارية.",
+    icon: <FaGlobe size={24} className="text-blue-400" />,
+  },
+  {
+    id: 19,
+    question: "ما التقنيات التي تستخدمها شركة السمام؟",
+    answer:
+      "تستخدم شركة السمام تقنيات مثل Next.js، React، Laravel، Node.js، Flutter، Supabase، MySQL، PostgreSQL، Tailwind CSS، REST API، والحلول السحابية الحديثة.",
+    icon: <FaRocket size={24} className="text-red-500" />,
+  },
+  {
+    id: 20,
+    question: "هل تقدم شركة السمام استضافة ونشر للمواقع؟",
+    answer:
+      "نعم، تساعد شركة السمام في نشر المواقع والتطبيقات على منصات مثل Vercel و Render و Hostinger و Cloudflare و VPS حسب متطلبات المشروع.",
+    icon: <FaCloud size={24} className="text-sky-500" />,
+  },
+  {
+    id: 21,
+    question: "هل يمكن تحويل الموقع إلى PWA؟",
+    answer:
+      "نعم، يمكن تحويل الموقع إلى Progressive Web App بحيث يصبح قابلًا للتثبيت على الهاتف والكمبيوتر مع manifest، service worker، أيقونات، وتجربة قريبة من التطبيقات.",
+    icon: <FaMobile size={24} className="text-green-500" />,
+  },
+  {
+    id: 22,
+    question: "هل تقدم شركة السمام خدمات تحسين سرعة الموقع؟",
+    answer:
+      "نعم، تشمل خدمات تحسين السرعة تقليل حجم JavaScript، تحسين الصور، lazy loading، caching، ضغط الملفات، تحسين Core Web Vitals، وتقليل زمن تحميل الصفحة.",
+    icon: <FaRocket size={24} className="text-red-500" />,
+  },
+  {
+    id: 23,
+    question: "هل يمكن ربط الموقع مع Supabase؟",
+    answer:
+      "نعم، يمكن لشركة السمام بناء مواقع وتطبيقات تعتمد على Supabase لإدارة قواعد البيانات، المصادقة، التخزين، وواجهات API.",
+    icon: <FaCloud size={24} className="text-sky-500" />,
+  },
+  {
+    id: 24,
+    question: "هل تقدم شركة السمام أنظمة مدارس؟",
+    answer:
+      "نعم، يمكن لشركة السمام تطوير أنظمة مدارس تشمل الطلاب، المعلمين، الدرجات، الحضور، المواد، الصفوف، أولياء الأمور، والصلاحيات الإدارية.",
+    icon: <FaUsers size={24} className="text-indigo-500" />,
+  },
+  {
+    id: 25,
+    question: "هل تقدم شركة السمام أنظمة شركات؟",
+    answer:
+      "نعم، تطور شركة السمام أنظمة للشركات مثل CRM، ERP، إدارة الموظفين، إدارة المشاريع، الفواتير، المخزون، المبيعات، وخدمة العملاء.",
+    icon: <FaUsers size={24} className="text-indigo-500" />,
+  },
+  {
+    id: 26,
+    question: "كيف أتواصل مع شركة السمام؟",
+    answer:
+      "يمكن التواصل مع شركة السمام عبر البريد الإلكتروني info@alssemam.com أو عبر واتساب على الرقم +967715122500 للحصول على استشارة أو عرض سعر.",
+    icon: <FaWhatsapp size={24} className="text-green-500" />,
+  },
+  {
+    id: 27,
+    question: "هل تقدم شركة السمام استشارة مجانية؟",
+    answer:
+      "نعم، يمكن طلب استشارة أولية لفهم فكرة المشروع، تحديد المتطلبات، اقتراح التقنيات المناسبة، وتقدير مبدئي للتكلفة والمدة.",
+    icon: <FaLightbulb size={24} className="text-yellow-500" />,
+  },
+  {
+    id: 28,
+    question: "ما الذي يميز شركة السمام؟",
+    answer:
+      "تتميز شركة السمام بالجمع بين التصميم الحديث، البرمجة النظيفة، تحسين SEO، دعم PWA، قابلية التوسع، وفهم احتياجات السوق العربي واليمني والخليجي.",
+    icon: <FaTrophy size={24} className="text-yellow-500" />,
+  },
+  {
+    id: 29,
+    question: "هل تقدم شركة السمام ضمان على المشاريع؟",
+    answer:
+      "نعم، تقدم شركة السمام ضمانًا ضد الأخطاء البرمجية بعد التسليم حسب اتفاق المشروع، مع إمكانية إضافة عقود صيانة ودعم طويلة المدى.",
+    icon: <FaShieldAlt size={24} className="text-purple-500" />,
+  },
+  {
+    id: 30,
+    question: "هل يمكن تطوير نظام خاص حسب الطلب؟",
+    answer:
+      "نعم، تطور شركة السمام أنظمة خاصة حسب الطلب للشركات والمؤسسات مثل أنظمة الحجز، إدارة المحتوى، إدارة العملاء، الفوترة، التعليم، والإعلانات المبوبة.",
+    icon: <FaCode size={24} className="text-blue-500" />,
+  },
+  {
+  id: 31,
+  question: "هل تدعم شركة السمام ربط الأنظمة مع DeepSeek؟",
+  answer:
+    "نعم، تدعم شركة السمام ربط المواقع والتطبيقات والأنظمة الداخلية مع DeepSeek API لإنشاء مساعد ذكي، بوت محادثة، تحليل نصوص، توليد محتوى، تلخيص، تصنيف بيانات، وأتمتة عمليات داخل لوحات التحكم والأنظمة الإدارية.",
+  icon: <FaRobot size={24} className="text-cyan-500" />,
+},
+{
+  id: 32,
+  question: "هل يمكن لمحركات الذكاء الاصطناعي فهم موقع شركة السمام بسهولة؟",
+  answer:
+    "نعم، تم تصميم موقع شركة السمام باستخدام أفضل ممارسات تحسين محركات البحث والذكاء الاصطناعي، بما يشمل FAQ Schema، تنظيم المحتوى، إجابات واضحة، دعم llms.txt، وتحسين تجربة المستخدم، مما يساعد نماذج مثل ChatGPT و DeepSeek و Google AI على فهم الموقع بدقة.",
+  icon: <FaRobot size={24} className="text-cyan-500" />,
+}
+
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-};
-
-const AIReadyFAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredFaqs, setFilteredFaqs] = useState(faqs);
-
-  const handleSearch = (e) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-    setFilteredFaqs(
-      faqs.filter(faq => 
-        faq.question.toLowerCase().includes(term) || 
-        faq.answer.toLowerCase().includes(term)
-      )
-    );
-  };
-
-  // Schema Markup للذكاء الاصطناعي
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": filteredFaqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-              <FaQuestionCircle className="text-blue-600 dark:text-blue-400" size={16} />
-              <span className="text-sm font-medium text-blue-700 dark:text-blue-300">الأسئلة الشائعة</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              إجابات على أسئلتكم
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
-              نقدم إجابات شاملة لأكثر الأسئلة شيوعاً حول خدمات السمام
-            </p>
-          </motion.div>
-
-          {/* شريط البحث */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-xl mx-auto mb-12"
-          >
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="ابحث في الأسئلة الشائعة..."
-                value={searchTerm}
-                onChange={handleSearch}
-                className="w-full px-5 py-4 pr-12 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-              />
-              <FaQuestionCircle className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            </div>
-          </motion.div>
-
-          {/* قائمة الأسئلة */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-3xl mx-auto"
-          >
-            {filteredFaqs.length === 0 ? (
-              <motion.div
-                variants={itemVariants}
-                className="text-center py-12"
-              >
-                <p className="text-gray-500 text-lg">لا توجد نتائج مطابقة لبحثك</p>
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="mt-4 text-blue-600 hover:underline"
-                >
-                  عرض جميع الأسئلة
-                </button>
-              </motion.div>
-            ) : (
-              filteredFaqs.map((faq, index) => (
-                <motion.div
-                  key={faq.id}
-                  variants={itemVariants}
-                  className="mb-4"
-                >
-                  <motion.button
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full text-right p-5 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex justify-between items-center group"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="text-blue-500 group-hover:scale-110 transition-transform duration-300">
-                        {faq.icon}
-                      </div>
-                      <span className="font-semibold text-gray-800 dark:text-white text-lg">
-                        {faq.question}
-                      </span>
-                    </div>
-                    <motion.div
-                      animate={{ rotate: openIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {openIndex === index ? (
-                        <FaChevronUp className="text-gray-400" />
-                      ) : (
-                        <FaChevronDown className="text-gray-400" />
-                      )}
-                    </motion.div>
-                  </motion.button>
-                  
-                  <AnimatePresence>
-                    {openIndex === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="p-5 bg-gray-50 dark:bg-gray-900/50 rounded-b-xl border-t border-gray-100 dark:border-gray-700">
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))
-            )}
-          </motion.div>
-
-          {/* قسم اتصل بنا */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-800"
-          >
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              لم تجد إجابة لسؤالك؟
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="mailto:info@alssemam.com"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                <FaEnvelope size={18} />
-                <span>info@alssemam.com</span>
-              </a>
-              <a
-                href="https://wa.me/967715122500"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                <FaWhatsapp size={18} />
-                <span>واتساب</span>
-              </a>
-              <a
-                href="tel:+967715122500"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                <FaPhone size={18} />
-                <span>اتصال مباشر</span>
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default AIReadyFAQ;

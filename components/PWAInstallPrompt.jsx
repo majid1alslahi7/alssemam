@@ -53,7 +53,7 @@ export default function PWAInstallPrompt() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <span style={{ fontSize: '24px' }}>📱</span>
         <div>
-          <strong style={{ fontSize: '16px' }}>تثبيت تطبيق السَّمَام</strong>
+          <strong style={{ fontSize: '16px' }}>تثبيت تطبيق شركة السمام</strong>
           <p style={{ margin: '4px 0 0', fontSize: '14px', opacity: 0.9 }}>للوصول السريع وتجربة أفضل</p>
         </div>
       </div>

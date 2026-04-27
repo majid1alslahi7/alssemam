@@ -1,145 +1,610 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>خريطة الموقع | السَّمَام</title>
-    <meta name="robots" content="index, follow">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Cairo', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #1F4E79, #4A9FE5);
-            min-height: 100vh;
-            padding: 40px 20px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>خريطة الموقع | شركة السمام</title>
+  <meta name="description" content="خريطة موقع شركة السمام تشمل الرئيسية، الخدمات، من نحن، أعمالنا، السمام نيوز، الإعلانات، اتصل بنا، وملفات الذكاء الاصطناعي." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alssemam.com/sitemap.html" />
+
+  <meta property="og:title" content="خريطة الموقع | شركة السمام" />
+  <meta property="og:description" content="جميع روابط شركة السمام في صفحة واحدة منظمة." />
+  <meta property="og:url" content="https://alssemam.com/sitemap.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="شركة السمام" />
+  <meta property="og:locale" content="ar_AR" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "شركة السمام",
+        "alternateName": "Alssemam",
+        "url": "https://alssemam.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "شركة السمام",
+        "url": "https://alssemam.com/",
+        "email": "info@alssemam.com"
+      },
+      {
+        "@type": "NewsMediaOrganization",
+        "name": "السمام نيوز",
+        "url": "https://alssemam.com/news",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "شركة السمام",
+          "url": "https://alssemam.com/"
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        h1 {
-            color: #1F4E79;
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-        .subtitle {
-            color: #4A9FE5;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #F0F0F0;
-            padding-bottom: 15px;
-        }
-        h2 {
-            color: #0A2F44;
-            margin: 25px 0 15px;
-            font-size: 1.3rem;
-            padding-right: 10px;
-            border-right: 4px solid #FF9F4A;
-        }
-        ul {
-            list-style: none;
-        }
-        li {
-            margin: 12px 0;
-            padding: 8px 15px;
-            background: #F5F7FA;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        li:hover {
-            background: #E8EEF5;
-            transform: translateX(-5px);
-        }
-        a {
-            text-decoration: none;
-            color: #1F4E79;
-            font-weight: 500;
-            display: block;
-        }
-        a:hover {
-            color: #4A9FE5;
-        }
-        .url {
-            font-size: 0.7rem;
-            color: #999;
-            direction: ltr;
-            display: inline-block;
-            margin-right: 10px;
-        }
-        .footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #E0E0E0;
-            text-align: center;
-            color: #666;
-            font-size: 0.8rem;
-        }
-        .badge {
-            display: inline-block;
-            background: #FF9F4A;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            margin-right: 10px;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            h1 { font-size: 1.5rem; }
-        }
-    </style>
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "name": [
+          "الرئيسية",
+          "الخدمات",
+          "من نحن",
+          "أعمالنا",
+          "السمام نيوز",
+          "الإعلانات",
+          "اتصل بنا",
+          "ملفات الذكاء الاصطناعي"
+        ],
+        "url": [
+          "https://alssemam.com/",
+          "https://alssemam.com/services",
+          "https://alssemam.com/about",
+          "https://alssemam.com/portfolio",
+          "https://alssemam.com/news",
+          "https://alssemam.com/ads",
+          "https://alssemam.com/contact",
+          "https://alssemam.com/llms.txt"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 18px;
+      font-family: "Cairo", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 28%),
+        linear-gradient(135deg, #0A2F44 0%, #1F4E79 45%, #4A9FE5 100%);
+      color: #0A2F44;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #E8EEF5;
+    }
+
+    .logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      object-fit: contain;
+      background: #F5F9FF;
+      padding: 6px;
+      border: 1px solid #E4EEF8;
+    }
+
+    .brand-title {
+      margin: 0;
+      color: #1F4E79;
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
+
+    .domain {
+      display: block;
+      color: #6D7F8D;
+      font-size: 0.85rem;
+      direction: ltr;
+      text-align: right;
+      margin-top: 2px;
+    }
+
+    .hero {
+      padding: 26px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #F5F9FF, #FFFFFF);
+      border: 1px solid #E4EEF8;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #EAF4FF;
+      color: #1F4E79;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #1F4E79;
+      font-size: 2.2rem;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #46657A;
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      background: #ffffff;
+      color: #1F4E79;
+      border: 1px solid #DCE6EF;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: 0.25s ease;
+    }
+
+    .quick-nav a:hover {
+      color: #fff;
+      background: #1F4E79;
+      border-color: #1F4E79;
+    }
+
+    .quick-nav .news-link {
+      color: #E63E6D;
+      border-color: #F5C8D5;
+      background: #FFF3F7;
+    }
+
+    .quick-nav .news-link:hover {
+      color: #fff;
+      background: #E63E6D;
+      border-color: #E63E6D;
+    }
+
+    .search {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 16px;
+      border: 1px solid #DCE6EF;
+      margin: 22px 0 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.25s ease;
+      background: #FBFDFF;
+    }
+
+    .search:focus {
+      border-color: #4A9FE5;
+      box-shadow: 0 0 0 4px rgba(74, 159, 229, 0.15);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .section {
+      border: 1px solid #E8EEF5;
+      border-radius: 18px;
+      padding: 18px;
+      background: #FFFFFF;
+    }
+
+    .section.full {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: #0A2F44;
+      font-size: 1.18rem;
+      padding-right: 10px;
+      border-right: 4px solid #FF9F4A;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background: #F5F7FA;
+      margin: 9px 0;
+      border-radius: 14px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    li:hover {
+      background: #EDF5FC;
+      border-color: #D7E8F7;
+      transform: translateX(-4px);
+    }
+
+    li a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      text-decoration: none;
+      color: #1F4E79;
+      font-weight: 800;
+      padding: 12px 14px;
+    }
+
+    .desc {
+      display: block;
+      color: #60798D;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .url {
+      direction: ltr;
+      color: #8A9BA8;
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: #FF9F4A;
+      color: #fff;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      margin-right: 6px;
+      font-weight: 800;
+    }
+
+    .badge.ai {
+      background: #635BFF;
+    }
+
+    .badge.news {
+      background: #E63E6D;
+    }
+
+    .badge.system {
+      background: #1F4E79;
+    }
+
+    .note {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #FFF8EF;
+      border: 1px solid #FFE1B8;
+      color: #6F4A1B;
+      line-height: 1.9;
+      font-size: 0.92rem;
+    }
+
+    .note a {
+      color: #1F4E79;
+      font-weight: 800;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #E8EEF5;
+      color: #6D7F8D;
+      font-size: 0.86rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 18px 10px;
+      }
+
+      .container {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .top {
+        align-items: flex-start;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .hero {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      li a {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .url {
+        white-space: normal;
+        word-break: break-word;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>🗺️ خريطة الموقع</h1>
-        <div class="subtitle">السَّمَام | Alssemam - جميع روابط الموقع في مكان واحد</div>
-        
+  <main class="container">
+    <header class="top">
+      <img src="/logo/logo.webp" alt="شعار شركة السمام" class="logo" />
+      <div>
+        <h2 class="brand-title">شركة السمام</h2>
+        <span class="domain">alssemam.com</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="brand">🌐 Alssemam Site Map</div>
+      <h1>🗺️ خريطة موقع شركة السمام</h1>
+      <p class="subtitle">
+        دليل شامل لجميع روابط موقع شركة السمام، بما يشمل الرئيسية، الخدمات، من نحن، أعمالنا، السمام نيوز، الإعلانات، اتصل بنا، ملفات النظام، وملفات الذكاء الاصطناعي.
+      </p>
+
+      <nav class="quick-nav" aria-label="روابط سريعة">
+        <a href="/">الرئيسية</a>
+        <a href="/services">الخدمات</a>
+        <a href="/about">من نحن</a>
+        <a href="/portfolio">أعمالنا</a>
+        <a href="/news" class="news-link">السمام نيوز</a>
+        <a href="/ads">الإعلانات</a>
+        <a href="/contact">اتصل بنا</a>
+      </nav>
+
+      <input
+        class="search"
+        type="search"
+        placeholder="ابحث عن صفحة أو رابط مثل: السمام نيوز، الخدمات، llms، robots..."
+        aria-label="البحث في خريطة الموقع"
+        oninput="filterLinks(this.value)"
+      />
+    </section>
+
+    <section class="grid">
+      <div class="section">
         <h2>📄 الصفحات الرئيسية</h2>
         <ul>
-            <li><a href="/">🏠 الرئيسية</a> <span class="url">https://alssemam.com/</span></li>
-            <li><a href="/#services">🛠️ الخدمات</a> <span class="url">https://alssemam.com/#services</span></li>
-            <li><a href="/#about">🏢 من نحن</a> <span class="url">https://alssemam.com/#about</span></li>
-            <li><a href="/#portfolio">📂 أعمالنا</a> <span class="url">https://alssemam.com/#portfolio</span></li>
-            <li><a href="/#contact">📞 اتصل بنا</a> <span class="url">https://alssemam.com/#contact</span></li>
+          <li>
+            <a href="/">
+              <span>🏠 الرئيسية <span class="desc">الواجهة الرئيسية لشركة السمام</span></span>
+              <span class="url">/</span>
+            </a>
+          </li>
+          <li>
+            <a href="/services">
+              <span>🛠️ الخدمات <span class="desc">خدمات تطوير المواقع والتطبيقات والحلول التقنية</span></span>
+              <span class="url">/services</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <span>🏢 من نحن <span class="desc">تعريف بشركة السمام ورؤيتها</span></span>
+              <span class="url">/about</span>
+            </a>
+          </li>
+          <li>
+            <a href="/portfolio">
+              <span>📂 أعمالنا <span class="desc">نماذج المشاريع والأعمال السابقة</span></span>
+              <span class="url">/portfolio</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact">
+              <span>📞 اتصل بنا <span class="desc">طرق التواصل وطلب الخدمات</span></span>
+              <span class="url">/contact</span>
+            </a>
+          </li>
         </ul>
-        
-        <h2>🤖 ملفات الذكاء الاصطناعي (AI)</h2>
+      </div>
+
+      <div class="section">
+        <h2>📰 المحتوى والمنصات</h2>
         <ul>
-            <li><a href="/llms.txt">📄 llms.txt</a> <span class="badge">AI</span> <span class="url">https://alssemam.com/llms.txt</span></li>
-            <li><a href="/llms-full.txt">📄 llms-full.txt</a> <span class="badge">AI</span> <span class="url">https://alssemam.com/llms-full.txt</span></li>
-            <li><a href="/llms-info.html">ℹ️ معلومات llms</a> <span class="url">https://alssemam.com/llms-info.html</span></li>
+          <li>
+            <a href="/news">
+              <span>📰 السمام نيوز <span class="badge news">News</span><span class="desc">منصة أخبار ومقالات تقنية تابعة لشركة السمام</span></span>
+              <span class="url">/news</span>
+            </a>
+          </li>
+          <li>
+            <a href="/ads">
+              <span>📢 الإعلانات <span class="desc">قسم الإعلانات والعروض والمحتوى المصنف</span></span>
+              <span class="url">/ads</span>
+            </a>
+          </li>
         </ul>
-        
-        <h2>⚙️ ملفات النظام</h2>
+      </div>
+
+      <div class="section">
+        <h2>🤖 ملفات الذكاء الاصطناعي</h2>
         <ul>
-            <li><a href="/robots.txt">🤖 robots.txt</a> <span class="url">https://alssemam.com/robots.txt</span></li>
-            <li><a href="/sitemap.xml">🗺️ sitemap.xml</a> <span class="url">https://alssemam.com/sitemap.xml</span></li>
-            <li><a href="/sitemap.html">🗺️ sitemap.html</a> <span class="url">https://alssemam.com/sitemap.html</span></li>
-            <li><a href="/manifest.json">📱 manifest.json</a> <span class="url">https://alssemam.com/manifest.json</span></li>
+          <li>
+            <a href="/llms.txt">
+              <span>📄 llms.txt <span class="badge ai">AI</span><span class="desc">ملف مختصر لمساعدة نماذج الذكاء الاصطناعي على فهم الموقع</span></span>
+              <span class="url">/llms.txt</span>
+            </a>
+          </li>
+          <li>
+            <a href="/llms-full.txt">
+              <span>📚 llms-full.txt <span class="badge ai">AI</span><span class="desc">نسخة موسعة لمحتوى الموقع مهيأة للمساعدات الذكية</span></span>
+              <span class="url">/llms-full.txt</span>
+            </a>
+          </li>
+          <li>
+            <a href="/llms-info.html">
+              <span>ℹ️ معلومات llms <span class="badge ai">AI</span><span class="desc">شرح ملفات الذكاء الاصطناعي داخل الموقع</span></span>
+              <span class="url">/llms-info.html</span>
+            </a>
+          </li>
         </ul>
-        
-        <h2>📱 ملفات PWA</h2>
+      </div>
+
+      <div class="section">
+        <h2>⚙️ ملفات النظام والفهرسة</h2>
         <ul>
-            <li><a href="/sw.js">⚡ Service Worker</a> <span class="url">https://alssemam.com/sw.js</span></li>
+          <li>
+            <a href="/sitemap.xml">
+              <span>🗺️ sitemap.xml <span class="badge system">SEO</span><span class="desc">خريطة XML الرسمية لمحركات البحث</span></span>
+              <span class="url">/sitemap.xml</span>
+            </a>
+          </li>
+          <li>
+            <a href="/robots.txt">
+              <span>🤖 robots.txt <span class="badge system">SEO</span><span class="desc">تعليمات الزحف لمحركات البحث</span></span>
+              <span class="url">/robots.txt</span>
+            </a>
+          </li>
+          <li>
+            <a href="/manifest.json">
+              <span>📱 manifest.json <span class="badge system">PWA</span><span class="desc">ملف تعريف تطبيق الويب التقدمي</span></span>
+              <span class="url">/manifest.json</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sw.js">
+              <span>⚡ Service Worker <span class="badge system">PWA</span><span class="desc">ملف التخزين المؤقت وتجربة التطبيق</span></span>
+              <span class="url">/sw.js</span>
+            </a>
+          </li>
         </ul>
-        
-        <h2>🔗 الروابط السريعة</h2>
+      </div>
+
+      <div class="section full">
+        <h2>📞 التواصل والروابط الخارجية</h2>
         <ul>
-            <li><a href="https://instagram.com/alssemam" target="_blank">📷 Instagram</a></li>
-            <li><a href="https://twitter.com/alssemam" target="_blank">🐦 X (Twitter)</a></li>
-            <li><a href="https://facebook.com/alssemam" target="_blank">📘 Facebook</a></li>
-            <li><a href="https://linkedin.com/company/alssemam" target="_blank">💼 LinkedIn</a></li>
-            <li><a href="https://wa.me/967715122500" target="_blank">💬 WhatsApp</a></li>
-            <li><a href="mailto:info@alssemam.com">📧 البريد الإلكتروني</a></li>
+          <li>
+            <a href="mailto:info@alssemam.com">
+              <span>📧 البريد الإلكتروني <span class="desc">راسل شركة السمام مباشرة</span></span>
+              <span class="url">info@alssemam.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/967715122500" target="_blank" rel="noopener noreferrer">
+              <span>💬 واتساب <span class="desc">تواصل سريع عبر واتساب</span></span>
+              <span class="url">wa.me/967715122500</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/alssemam" target="_blank" rel="noopener noreferrer">
+              <span>📷 Instagram <span class="desc">حساب السمام على إنستجرام</span></span>
+              <span class="url">instagram.com/alssemam</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/alssemam" target="_blank" rel="noopener noreferrer">
+              <span>📘 Facebook <span class="desc">حساب السمام على فيسبوك</span></span>
+              <span class="url">facebook.com/alssemam</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/company/alssemam" target="_blank" rel="noopener noreferrer">
+              <span>💼 LinkedIn <span class="desc">صفحة شركة السمام على لينكدإن</span></span>
+              <span class="url">linkedin.com/company/alssemam</span>
+            </a>
+          </li>
         </ul>
-        
-        <div class="footer">
-            <p>© 2026 السَّمَام - Alssemam. جميع الحقوق محفوظة</p>
-            <p>آخر تحديث: 4 أبريل 2026</p>
-        </div>
+      </div>
+    </section>
+
+    <div class="note">
+      <strong>ملاحظة:</strong>
+      هذه الصفحة مخصصة للزوار ولمساعدة محركات البحث ونماذج الذكاء الاصطناعي على فهم هيكلة الموقع.
+      أما خريطة الموقع الرسمية لمحركات البحث فهي
+      <a href="/sitemap.xml">sitemap.xml</a>.
     </div>
+
+    <footer class="footer">
+      <p>© 2026 شركة السمام | Alssemam. جميع الحقوق محفوظة.</p>
+      <p>آخر تحديث: 27 أبريل 2026</p>
+    </footer>
+  </main>
+
+  <script>
+    function normalizeArabic(text) {
+      return text
+        .toLowerCase()
+        .replace(/[أإآ]/g, "ا")
+        .replace(/ة/g, "ه")
+        .replace(/ى/g, "ي")
+        .replace(/[ًٌٍَُِّْ]/g, "");
+    }
+
+    function filterLinks(term) {
+      const items = document.querySelectorAll("li");
+      const normalizedTerm = normalizeArabic(term.trim());
+
+      items.forEach((li) => {
+        const text = normalizeArabic(li.textContent);
+        li.style.display = text.includes(normalizedTerm) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>

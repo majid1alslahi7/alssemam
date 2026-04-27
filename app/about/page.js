@@ -48,7 +48,7 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: '2024', title: 'تأسيس الشركة', desc: 'انطلاق رحلة السَّمَام في عالم التقنية', icon: <FaHandshake size={24} /> },
+    { year: '2024', title: 'تأسيس الشركة', desc: 'انطلاق رحلة شركة السمام في عالم التقنية', icon: <FaHandshake size={24} /> },
     { year: '2025', title: 'أول 10 مشاريع', desc: 'إنجاز أول 10 مشاريع تقنية ناجحة', icon: <FaCheckCircle size={24} /> },
     { year: '2026', title: 'التوسع الإقليمي', desc: 'التوسع في الأسواق العربية', icon: <FaTrophy size={24} /> },
   ];
@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">من نحن</h1>
           <p className="text-xl max-w-2xl mx-auto opacity-95">
-            السَّمَام.. سحابة التقنية التي تطلق أعمالكم
+            شركة السمام.. سحابة التقنية التي تطلق أعمالكم
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function AboutPage() {
               نؤمن بأن التقنية الجيدة هي التي تجعل الحياة أسهل والأعمال أكثر نجاحاً.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              تأسست السَّمَام لتكون شريكك الموثوق في رحلة التحول الرقمي،
+              تأسست شركة السمام لتكون شريكك الموثوق في رحلة التحول الرقمي،
               نقدم حلولاً مبتكرة تساعد عملك على النمو والانتشار كالسحاب في السماء.
             </p>
           </div>

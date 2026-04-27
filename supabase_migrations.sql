@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS articles (
   content TEXT NOT NULL,
   category TEXT DEFAULT 'news', -- news, article, writing
   image TEXT,
-  author TEXT DEFAULT 'السَّمَام',
+  author TEXT DEFAULT 'شركة السمام',
   views_count INTEGER DEFAULT 0,
   likes_count INTEGER DEFAULT 0,
   is_published BOOLEAN DEFAULT true,
@@ -48,6 +48,6 @@ INSERT INTO categories (name, slug) VALUES
 
 -- إضافة مقالات تجريبية
 INSERT INTO articles (title, slug, excerpt, content, category, author) VALUES
-('إطلاق موقع السَّمَام الجديد', 'launch-new-website', 'أعلنت شركة السَّمَام عن إطلاق موقعها الإلكتروني الجديد', 'نفخر بإطلاق موقعنا الجديد الذي يقدم خدماتنا بشكل أفضل...', 'news', 'فريق السَّمَام'),
+('إطلاق موقع شركة السمام الجديد', 'launch-new-website', 'أعلنت شركة شركة السمام عن إطلاق موقعها الإلكتروني الجديد', 'نفخر بإطلاق موقعنا الجديد الذي يقدم خدماتنا بشكل أفضل...', 'news', 'فريق شركة السمام'),
 ('أهمية تحسين محركات البحث SEO', 'seo-importance', 'تعرف على أهمية SEO وكيف يمكن أن ينمي أعمالك', 'SEO هو عنصر أساسي لنجاح أي موقع إلكتروني...', 'article', 'أحمد محمد'),
-('رحلتنا في عالم التقنية', 'our-tech-journey', 'قصة نجاح السَّمَام من البداية إلى الاحترافية', 'بدأت رحلة السَّمَام في عام 2024...', 'writing', 'فريق السَّمَام');
+('رحلتنا في عالم التقنية', 'our-tech-journey', 'قصة نجاح شركة السمام من البداية إلى الاحترافية', 'بدأت رحلة شركة السمام في عام 2024...', 'writing', 'فريق شركة السمام');
