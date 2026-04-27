@@ -3,18 +3,31 @@ import ArticleClient from "./ArticleClient";
 
 const baseUrl = "https://alssemam.com";
 
+// أضف هذه الدالة المساعدة في أعلى الملف
+function decodeSlug(encodedSlug) {
+  try {
+    // فك ترميز الرابط للتعامل مع العربية
+    return decodeURIComponent(encodedSlug);
+  } catch {
+    // إذا حدث خطأ، أرجع القيمة الأصلية
+    return encodedSlug;
+  }
+}
+
 async function getArticle(slug) {
+  // **هذا هو التغيير الأهم: قم بفك ترميز الـ slug قبل البحث به**
+  const decodedSlug = decodeSlug(slug);
+  
   const { data, error } = await supabase
     .from("articles")
     .select("*")
-    .eq("slug", slug)
+    .eq("slug", decodedSlug) // استخدم القيمة المفوّكة للبحث
     .eq("is_published", true)
     .single();
 
   if (error) return null;
   return data;
 }
-
 export async function generateMetadata({ params }) {
   const article = await getArticle(params.slug);
 
