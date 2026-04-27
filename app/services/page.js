@@ -194,6 +194,52 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <section className="py-16 bg-white dark:bg-gray-900">
+  <div className="container mx-auto px-4 max-w-4xl">
+    
+    <h2 className="text-3xl font-bold mb-6">
+      خدمات شركة السمام للتطوير التقني
+    </h2>
+
+    <p className="mb-4 text-gray-600 dark:text-gray-300 leading-8">
+      تقدم شركة السمام Alssemam مجموعة متكاملة من خدمات تطوير مواقع الويب وتطبيقات المحمول
+      والحلول الرقمية الحديثة، حيث نساعد الشركات والمؤسسات على التحول الرقمي
+      وتحقيق نمو فعلي في أعمالهم عبر الإنترنت.
+    </p>
+
+    <h3 className="text-2xl font-bold mt-8 mb-4">
+      لماذا تحتاج إلى خدمات تطوير مواقع وتطبيقات؟
+    </h3>
+
+    <p className="mb-4 text-gray-600 dark:text-gray-300 leading-8">
+      في العصر الرقمي، أصبح وجود موقع إلكتروني أو تطبيق موبايل أمرًا أساسيًا
+      لأي نشاط تجاري. يساعدك الموقع في الوصول إلى عملائك بسهولة،
+      بينما يمنحك التطبيق تجربة مستخدم متقدمة تزيد من ولاء العملاء.
+    </p>
+
+    <h3 className="text-2xl font-bold mt-8 mb-4">
+      مميزات خدمات شركة السمام
+    </h3>
+
+    <ul className="list-disc pr-6 space-y-2 text-gray-600 dark:text-gray-300">
+      <li>تصميم احترافي متوافق مع جميع الأجهزة</li>
+      <li>تحسين SEO لظهور الموقع في جوجل</li>
+      <li>سرعة تحميل عالية وأداء ممتاز</li>
+      <li>أمان عالي وحماية البيانات</li>
+      <li>دعم فني مستمر بعد التسليم</li>
+    </ul>
+
+    <h3 className="text-2xl font-bold mt-8 mb-4">
+      خدماتنا في الذكاء الاصطناعي
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-300 leading-8">
+      نوفر حلول ذكاء اصطناعي متقدمة مثل Chatbots وربط المواقع مع ChatGPT و DeepSeek
+      لإنشاء أنظمة ذكية تساعد في تحسين تجربة المستخدم وزيادة المبيعات.
+    </p>
+
+  </div>
+</section>
     </div>
   );
 }

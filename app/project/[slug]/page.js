@@ -192,11 +192,34 @@ export default function ProjectDetailsPage() {
   }
 
   if (!project) {
-    return <div className="pt-32 text-center min-h-screen"><h1 className="text-2xl font-bold mb-4">المشروع غير موجود</h1><Link href="/portfolio" className="text-blue-600 hover:underline">العودة إلى أعمالنا</Link></div>;
-  }
+  return (
+    <div className="pt-32 text-center min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">المشروع غير موجود</h1>
+      <Link href="/portfolio" className="text-blue-600 hover:underline">
+        العودة إلى أعمالنا
+      </Link>
+    </div>
+  );
+}
+  const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: project.title,
+  description: project.short_description || project.description,
+  applicationCategory: "WebApplication",
+  operatingSystem: "All",
+  url:
+    typeof window !== "undefined"
+      ? window.location.href
+      : `https://alssemam.com/project/${project.slug}`,
+};
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+       <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
       <Toaster position="top-center" />
 
       <AnimatePresence>
@@ -297,6 +320,46 @@ export default function ProjectDetailsPage() {
             <div className="lg:col-span-2">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">وصف المشروع</h2>
+                <section className="mt-10 space-y-6">
+  <h2 className="text-2xl font-bold">
+    تفاصيل مشروع {project.title}
+  </h2>
+
+  <p className="text-gray-600 dark:text-gray-300 leading-8">
+    يعد مشروع {project.title} أحد المشاريع التي قامت شركة السمام بتطويرها باستخدام أحدث التقنيات
+    في مجال تطوير {project.category === 'web' ? 'مواقع الويب' : 'تطبيقات المحمول'}.
+    تم تنفيذ المشروع وفق أفضل معايير الأداء وتجربة المستخدم.
+  </p>
+
+  <h3 className="text-xl font-bold">
+    التقنيات المستخدمة في المشروع
+  </h3>
+
+  <p className="text-gray-600 dark:text-gray-300 leading-8">
+    استخدمنا في هذا المشروع تقنيات حديثة مثل {technologies.join(', ') || 'تقنيات متقدمة'}
+    لضمان أفضل أداء وسرعة واستقرار.
+  </p>
+
+  <h3 className="text-xl font-bold">
+    أهداف المشروع
+  </h3>
+
+  <ul className="list-disc pr-6 space-y-2 text-gray-600 dark:text-gray-300">
+    <li>تحسين تجربة المستخدم</li>
+    <li>زيادة سرعة الموقع</li>
+    <li>تقديم حلول تقنية حديثة</li>
+    <li>تحقيق أهداف العميل</li>
+  </ul>
+
+  <h3 className="text-xl font-bold">
+    لماذا تختار شركة السمام؟
+  </h3>
+
+  <p className="text-gray-600 dark:text-gray-300 leading-8">
+    شركة السمام تقدم حلول تطوير متكاملة تشمل تطوير المواقع والتطبيقات
+    والذكاء الاصطناعي، مع دعم فني مستمر وجودة عالية في التنفيذ.
+  </p>
+</section>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{project.long_description}</p>
               </motion.div>
 

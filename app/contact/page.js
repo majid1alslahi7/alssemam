@@ -1,205 +1,207 @@
-'use client';
-import { supabase } from '@/services/supabase';
+import ContactPage from '@/components/ContactPage';
 
-import { useState } from 'react';
-import { addContactRequest } from '@/services/supabase';
-import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock, FaCheckCircle, FaSpinner, FaPaperPlane } from 'react-icons/fa';
+export const metadata = {
+  title: 'تواصل معنا | السمام للتقنية - خدمات تطوير المواقع والتطبيقات',
+  description:
+    'تواصل مع فريق السمام للتقنية للاستفسار عن خدمات تطوير المواقع، تطبيقات الموبايل، الحلول السحابية، وتصميم واجهات المستخدم. نحن في اليمن والسعودية.',
+  keywords: [
+    'تواصل معنا',
+    'السمام للتقنية',
+    'تطوير مواقع اليمن',
+    'تطوير تطبيقات موبايل',
+    'شركة تقنية صنعاء',
+    'شركة تقنية الرياض',
+    'خدمات سحابية',
+    'تصميم واجهات مستخدم',
+    'متجر إلكتروني',
+    'ذكاء اصطناعي',
+    'web development Yemen',
+    'software company Saudi Arabia',
+  ],
+  authors: [{ name: 'السمام للتقنية', url: 'https://www.alssemam.com' }],
+  creator: 'السمام للتقنية',
+  publisher: 'السمام للتقنية',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.alssemam.com/contact',
+    languages: {
+      'ar-YE': 'https://www.alssemam.com/contact',
+      'ar-SA': 'https://www.alssemam.com/contact',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ar_YE',
+    url: 'https://www.alssemam.com/contact',
+    siteName: 'السمام للتقنية',
+    title: 'تواصل معنا | السمام للتقنية',
+    description:
+      'تواصل مع فريق السمام للتقنية للاستفسار عن خدمات تطوير المواقع والتطبيقات والحلول التقنية المتكاملة.',
+    images: [
+      {
+        url: 'https://www.alssemam.com/og-contact.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'تواصل مع السمام للتقنية',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'تواصل معنا | السمام للتقنية',
+    description:
+      'تواصل مع فريق السمام للتقنية للاستفسار عن خدمات تطوير المواقع والتطبيقات.',
+    images: ['https://www.alssemam.com/og-contact.jpg'],
+    creator: '@alssemam',
+    site: '@alssemam',
+  },
+  verification: {
+    google: 'GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE',
+    // yandex: 'YANDEX_CODE',
+    // bing: 'BING_CODE',
+  },
+  category: 'technology',
+};
 
-export default function ContactPage() {
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
+// JSON-LD Structured Data
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      '@id': 'https://www.alssemam.com/contact#contactpage',
+      name: 'تواصل مع السمام للتقنية',
+      description:
+        'صفحة التواصل مع شركة السمام للتقنية - خدمات تطوير المواقع والتطبيقات في اليمن والسعودية',
+      url: 'https://www.alssemam.com/contact',
+      inLanguage: 'ar',
+      isPartOf: {
+        '@id': 'https://www.alssemam.com/#website',
+      },
+      breadcrumb: {
+        '@id': 'https://www.alssemam.com/contact#breadcrumb',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://www.alssemam.com/contact#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'الرئيسية',
+          item: 'https://www.alssemam.com',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'تواصل معنا',
+          item: 'https://www.alssemam.com/contact',
+        },
+      ],
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.alssemam.com/#organization',
+      name: 'السمام للتقنية',
+      alternateName: 'Alssemam Tech',
+      url: 'https://www.alssemam.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.alssemam.com/logo.png',
+        width: 200,
+        height: 60,
+      },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+967-715-122500',
+          contactType: 'customer service',
+          availableLanguage: ['Arabic'],
+          areaServed: ['YE', 'SA'],
+          hoursAvailable: [
+            {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Saturday',
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+              ],
+              opens: '09:00',
+              closes: '17:00',
+            },
+            {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Thursday'],
+              opens: '09:00',
+              closes: '14:00',
+            },
+          ],
+        },
+      ],
+      email: 'info@alssemam.com',
+      sameAs: [
+        'https://wa.me/967715122500',
+        'https://twitter.com/alssemam',
+        'https://www.linkedin.com/company/alssemam',
+      ],
+      address: [
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'صنعاء',
+          addressCountry: 'YE',
+        },
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'الرياض',
+          addressCountry: 'SA',
+        },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.alssemam.com/#website',
+      url: 'https://www.alssemam.com',
+      name: 'السمام للتقنية',
+      description: 'شركة تقنية متخصصة في تطوير المواقع والتطبيقات والحلول الرقمية',
+      inLanguage: 'ar',
+      publisher: {
+        '@id': 'https://www.alssemam.com/#organization',
+      },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://www.alssemam.com/search?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
+};
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    
-    try {
-      await addContactRequest(formData);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('حدث خطأ في إرسال الطلب، يرجى المحاولة مرة أخرى');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const contactInfo = [
-    { icon: <FaEnvelope size={24} />, label: 'البريد الإلكتروني', value: 'info@alssemam.com', link: 'mailto:info@alssemam.com', color: 'bg-red-500' },
-    { icon: <FaWhatsapp size={24} />, label: 'WhatsApp', value: '+967 715122500', link: 'https://wa.me/967715122500', color: 'bg-green-500' },
-    { icon: <FaPhone size={24} />, label: 'اتصال هاتفي', value: '+967 715122500', link: 'tel:+967715122500', color: 'bg-blue-500' },
-    { icon: <FaMapMarkerAlt size={24} />, label: 'الموقع', value: 'اليمن - صنعاء / السعودية - الرياض', link: null, color: 'bg-purple-500' },
-  ];
-
-  const workingHours = [
-    { day: 'السبت - الأربعاء', hours: '9:00 ص - 5:00 م' },
-    { day: 'الخميس', hours: '9:00 ص - 2:00 م' },
-    { day: 'الجمعة', hours: 'عطلة' },
-  ];
-
+export default function ContactRoute() {
   return (
-    <div className="pt-24 pb-16">
-      <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">تواصل معنا</h1>
-          <p className="text-xl max-w-2xl mx-auto opacity-95">
-            نحن هنا للإجابة على استفساراتكم
-          </p>
-        </div>
-      </section>
-
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sticky top-24">
-              <h2 className="text-2xl font-bold mb-6">معلومات الاتصال</h2>
-              
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className={`w-12 h-12 ${info.color} rounded-lg flex items-center justify-center text-white shrink-0`}>
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{info.label}</h3>
-                      {info.link ? (
-                        <a href={info.link} className="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition text-sm">
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-gray-600 dark:text-gray-300 text-sm">{info.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  <FaClock size={18} className="text-blue-600" />
-                  ساعات العمل
-                </h3>
-                <div className="space-y-2">
-                  {workingHours.map((item, index) => (
-                    <div key={index} className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-300">{item.day}</span>
-                      <span className="font-medium">{item.hours}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-2">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8">
-              <h2 className="text-2xl font-bold mb-6">أرسل لنا رسالة</h2>
-              
-              {submitted && (
-                <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg flex items-center gap-3">
-                  <FaCheckCircle size={20} />
-                  <span>تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</span>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block mb-2 font-semibold">الاسم الكامل *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition"
-                      placeholder="أدخل اسمك الكامل"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-2 font-semibold">البريد الإلكتروني *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition"
-                      placeholder="example@domain.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block mb-2 font-semibold">رقم الجوال</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition"
-                      placeholder="+967 7xxxxxxx"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-2 font-semibold">الخدمة المطلوبة</label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition"
-                    >
-                      <option value="">اختر الخدمة</option>
-                      <option>تطوير موقع ويب</option>
-                      <option>تطبيق موبايل</option>
-                      <option>حلول سحابية</option>
-                      <option>تصميم واجهات</option>
-                      <option>متجر إلكتروني</option>
-                      <option>الذكاء الاصطناعي</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block mb-2 font-semibold">الرسالة *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="5"
-                    required
-                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"
-                    placeholder="اكتب تفاصيل رسالتك هنا..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 disabled:opacity-50"
-                >
-                  {submitting ? <FaSpinner className="animate-spin" size={18} /> : <FaPaperPlane size={18} />}
-                  {submitting ? 'جاري الإرسال...' : 'إرسال الرسالة'}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ContactPage />
+    </>
   );
 }
