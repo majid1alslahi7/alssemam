@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   FaCode,
   FaMobile,
@@ -16,7 +18,7 @@ import {
   FaStar,
 } from "react-icons/fa";
 
-export const faqs = [
+ const faqs = [
   {
     id: 1,
     question: "ما هي شركة السمام؟",
@@ -243,3 +245,20 @@ export const faqs = [
 }
 
 ];
+export default function AIReadyFAQ() {
+  const [open, setOpen] = useState(null);
+
+  return (
+    <section>
+      {faqs.map((faq, i) => (
+        <div key={faq.id}>
+          <button onClick={() => setOpen(open === i ? null : i)}>
+            {faq.icon} {faq.question}
+          </button>
+
+          {open === i && <p>{faq.answer}</p>}
+        </div>
+      ))}
+    </section>
+  );
+}
