@@ -480,8 +480,8 @@ export default function HomePage() {
             aria-hidden="true"
           />
 
-          <motion.div style={{ y: heroY }} className="container mx-auto px-4 relative z-10">
-            <div className="text-center max-w-6xl mx-auto w-full min-w-0">
+          <motion.div style={{ y: heroY }} className="container mx-auto px-4 relative z-10 w-full max-w-full overflow-hidden">
+            <div className="text-center max-w-6xl mx-auto w-full min-w-0 overflow-hidden">
               {/* Trust badge */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
@@ -503,7 +503,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.8 }}
-                className="mx-auto max-w-5xl text-[2.15rem] sm:text-[2.65rem] md:text-6xl lg:text-7xl font-black mb-6 leading-[1.14] md:leading-[1.12] tracking-normal [text-wrap:balance]"
+                className="mx-auto w-full max-w-[calc(100vw-2rem)] md:max-w-5xl text-[2.15rem] sm:text-[2.65rem] md:text-6xl lg:text-7xl font-black mb-6 leading-[1.14] md:leading-[1.12] tracking-normal [text-wrap:balance]"
               >
                 <span className="block text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.42)]">
                   نطلق أعمالكم
@@ -526,7 +526,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45, duration: 0.7 }}
-                className="text-base md:text-xl max-w-3xl mx-auto mb-9 md:mb-10 px-1 text-white/84 leading-8 md:leading-9 font-medium"
+                className="text-sm sm:text-base md:text-xl w-full max-w-[21rem] sm:max-w-2xl md:max-w-3xl mx-auto mb-9 md:mb-10 px-1 text-white/84 leading-7 sm:leading-8 md:leading-9 font-medium"
               >
                 شركة رائدة في تطوير مواقع الويب وتطبيقات المحمول، نقدم حلولاً تقنية مبتكرة
                 تساعد عملك على النمو والانتشار الواسع.
@@ -541,7 +541,7 @@ export default function HomePage() {
               >
                 <Link
                   href="/contact"
-                  className="group relative min-h-14 w-full max-w-sm px-7 md:px-8 py-4 bg-[#d7aa3f] hover:bg-[#e7be58] text-[#061225] rounded-2xl font-bold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-2xl shadow-black/25 overflow-hidden flex items-center justify-center sm:w-auto"
+                  className="group relative min-h-14 w-full max-w-[21rem] px-7 md:px-8 py-4 bg-[#d7aa3f] hover:bg-[#e7be58] text-[#061225] rounded-2xl font-bold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-2xl shadow-black/25 overflow-hidden flex items-center justify-center sm:w-auto"
                   aria-label="ابدأ مشروعك الآن - تواصل معنا"
                 >
                   <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -552,7 +552,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="group min-h-14 w-full max-w-sm px-7 md:px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/17 rounded-2xl font-semibold text-base transition-all duration-300 border border-white/24 hover:border-white/45 flex items-center justify-center gap-2.5 sm:w-auto"
+                  className="group min-h-14 w-full max-w-[21rem] px-7 md:px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/17 rounded-2xl font-semibold text-base transition-all duration-300 border border-white/24 hover:border-white/45 flex items-center justify-center gap-2.5 sm:w-auto"
                   aria-label="استكشف أعمالنا ومشاريعنا"
                 >
                   استكشف أعمالنا
@@ -569,7 +569,7 @@ export default function HomePage() {
                 aria-label="مميزاتنا"
               >
                 {['جودة مضمونة 100%', 'دعم فني 24/7', 'أسعار تنافسية', 'تسليم في الموعد'].map((item, i) => (
-                  <div key={i} className="flex min-h-12 w-full max-w-sm mx-auto items-center justify-center gap-2 rounded-xl border border-white/14 bg-white/8 px-4 py-3 backdrop-blur-sm shadow-lg shadow-black/10">
+                  <div key={i} className="flex min-h-12 w-full max-w-[21rem] mx-auto items-center justify-center gap-2 rounded-xl border border-white/14 bg-white/8 px-4 py-3 backdrop-blur-sm shadow-lg shadow-black/10">
                     <FaCheckCircle className="text-[#d7aa3f] flex-shrink-0" size={14} />
                     <span className="font-semibold">{item}</span>
                   </div>
