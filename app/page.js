@@ -450,62 +450,52 @@ export default function HomePage() {
         ================================================ */}
         <motion.section
           style={{ opacity: heroOpacity, scale: heroScale }}
-          className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#020818] via-[#0a1628] to-[#0d1f3c] text-white overflow-hidden"
+          className="relative min-h-[92svh] pt-28 pb-16 md:pt-32 md:pb-20 flex items-center justify-center bg-[#061225] text-white overflow-hidden"
           aria-label="القسم الرئيسي"
         >
-          {/* Animated gradient orbs */}
+          {/* Branded logo background */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-            <motion.div
-              animate={{ scale: [1, 1.4, 1], rotate: [0, 120, 0], x: [0, 30, 0] }}
-              transition={{ repeat: Infinity, duration: 22, ease: 'easeInOut' }}
-              className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[80px]"
+            <motion.img
+              src="/logo/logo.webp"
+              alt=""
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 0.24, scale: [1.08, 1.12, 1.08], x: [0, -16, 0], y: [0, 10, 0] }}
+              transition={{ opacity: { duration: 0.8 }, scale: { repeat: Infinity, duration: 18, ease: 'easeInOut' }, x: { repeat: Infinity, duration: 18, ease: 'easeInOut' }, y: { repeat: Infinity, duration: 18, ease: 'easeInOut' } }}
+              className="absolute inset-0 h-full w-full object-cover object-center"
             />
-            <motion.div
-              animate={{ scale: [1.3, 1, 1.3], rotate: [0, -100, 0], x: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 18, ease: 'easeInOut' }}
-              className="absolute bottom-[5%] right-[5%] w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[100px]"
-            />
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], y: [0, -40, 0] }}
-              transition={{ repeat: Infinity, duration: 12, ease: 'easeInOut' }}
-              className="absolute top-[40%] left-[40%] w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[60px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], x: [0, 50, 0] }}
-              transition={{ repeat: Infinity, duration: 16, ease: 'easeInOut' }}
-              className="absolute top-[20%] right-[20%] w-[250px] h-[250px] bg-cyan-600/10 rounded-full blur-[60px]"
-            />
+            <div className="absolute inset-0 bg-[#061225]/78" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,18,37,0.98)_0%,rgba(6,18,37,0.86)_43%,rgba(6,18,37,0.68)_100%)]" />
+            <div className="hero-logo-wave hero-logo-wave-one absolute -inset-x-20 top-16 h-52 md:h-64 opacity-45" />
+            <div className="hero-logo-wave hero-logo-wave-two absolute -inset-x-20 bottom-0 h-56 md:h-72 opacity-35" />
           </div>
 
           {/* Grid pattern */}
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
+                'linear-gradient(rgba(212,175,55,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(74,159,229,0.45) 1px, transparent 1px)',
+              backgroundSize: '72px 72px',
             }}
             aria-hidden="true"
           />
 
-          <Particles />
-
           <motion.div style={{ y: heroY }} className="container mx-auto px-4 relative z-10">
-            <div className="text-center max-w-5xl mx-auto">
+            <div className="text-center max-w-6xl mx-auto w-full min-w-0">
               {/* Trust badge */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, type: 'spring', stiffness: 260, damping: 20 }}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/8 backdrop-blur-xl rounded-full mb-10 border border-white/15 shadow-lg"
+                className="inline-flex max-w-[min(100%,24rem)] flex-wrap items-center justify-center gap-2 px-4 py-2.5 md:px-5 bg-white/10 backdrop-blur-xl rounded-2xl mb-7 md:mb-9 border border-white/18 shadow-lg shadow-black/20"
               >
-                <div className="flex gap-0.5">
+                <div className="flex flex-shrink-0 gap-0.5">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <FaStar key={s} className="text-yellow-400" size={11} />
                   ))}
                 </div>
-                <span className="text-sm font-medium text-white/90">شركة السمام للتقنية والحلول البرمجية</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                <span className="min-w-0 text-xs sm:text-sm font-semibold text-white/95 whitespace-normal">شركة السمام للتقنية والحلول البرمجية</span>
+                <span className="w-1.5 h-1.5 flex-shrink-0 rounded-full bg-green-400 animate-pulse" />
               </motion.div>
 
               {/* H1 */}
@@ -513,18 +503,19 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.8 }}
-                className="text-5xl md:text-7xl lg:text-[5.5rem] font-black mb-6 leading-[1.1] tracking-tight"
+                className="mx-auto max-w-5xl text-[2.15rem] sm:text-[2.65rem] md:text-6xl lg:text-7xl font-black mb-6 leading-[1.14] md:leading-[1.12] tracking-normal [text-wrap:balance]"
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-blue-100">
+                <span className="block text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.42)]">
                   نطلق أعمالكم
                 </span>
-                <br />
-                <span className="text-white">في آفاق التقنية</span>
+                <span className="block text-[#dceeff] drop-shadow-[0_3px_18px_rgba(0,0,0,0.42)]">
+                  في آفاق التقنية
+                </span>
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8, duration: 0.6, type: 'spring' }}
-                  className="block mt-3 text-4xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-orange-300 to-yellow-400"
+                  className="block mt-2 text-[2rem] sm:text-[2.25rem] md:text-5xl lg:text-6xl text-[#d7aa3f] drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
                 >
                   كالسَّمَامِ
                 </motion.span>
@@ -535,7 +526,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45, duration: 0.7 }}
-                className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/65 leading-relaxed"
+                className="text-base md:text-xl max-w-3xl mx-auto mb-9 md:mb-10 px-1 text-white/84 leading-8 md:leading-9 font-medium"
               >
                 شركة رائدة في تطوير مواقع الويب وتطبيقات المحمول، نقدم حلولاً تقنية مبتكرة
                 تساعد عملك على النمو والانتشار الواسع.
@@ -546,14 +537,14 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-wrap gap-4 justify-center mb-14"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 md:mb-12"
               >
                 <Link
                   href="/contact"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 rounded-full font-bold text-base transition-all duration-300 hover:scale-105 shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 overflow-hidden"
+                  className="group relative min-h-14 w-full max-w-sm px-7 md:px-8 py-4 bg-[#d7aa3f] hover:bg-[#e7be58] text-[#061225] rounded-2xl font-bold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-2xl shadow-black/25 overflow-hidden flex items-center justify-center sm:w-auto"
                   aria-label="ابدأ مشروعك الآن - تواصل معنا"
                 >
-                  <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                   <span className="relative flex items-center gap-2.5">
                     ابدأ مشروعك الآن
                     <FaRocket size={14} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
@@ -561,7 +552,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="group px-8 py-4 bg-white/8 backdrop-blur-md hover:bg-white/15 rounded-full font-semibold text-base transition-all duration-300 border border-white/20 hover:border-white/40 flex items-center gap-2.5"
+                  className="group min-h-14 w-full max-w-sm px-7 md:px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/17 rounded-2xl font-semibold text-base transition-all duration-300 border border-white/24 hover:border-white/45 flex items-center justify-center gap-2.5 sm:w-auto"
                   aria-label="استكشف أعمالنا ومشاريعنا"
                 >
                   استكشف أعمالنا
@@ -574,13 +565,13 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
-                className="flex flex-wrap items-center justify-center gap-6 text-white/45 text-sm"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto text-white/88 text-sm"
                 aria-label="مميزاتنا"
               >
                 {['جودة مضمونة 100%', 'دعم فني 24/7', 'أسعار تنافسية', 'تسليم في الموعد'].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <FaCheckCircle className="text-emerald-400 flex-shrink-0" size={13} />
-                    <span>{item}</span>
+                  <div key={i} className="flex min-h-12 w-full max-w-sm mx-auto items-center justify-center gap-2 rounded-xl border border-white/14 bg-white/8 px-4 py-3 backdrop-blur-sm shadow-lg shadow-black/10">
+                    <FaCheckCircle className="text-[#d7aa3f] flex-shrink-0" size={14} />
+                    <span className="font-semibold">{item}</span>
                   </div>
                 ))}
               </motion.div>
@@ -592,7 +583,7 @@ export default function HomePage() {
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
             onClick={scrollToNext}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors cursor-pointer group"
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors cursor-pointer group"
             aria-label="انتقل للقسم التالي"
           >
             <span className="text-xs tracking-widest uppercase font-medium">اكتشف المزيد</span>

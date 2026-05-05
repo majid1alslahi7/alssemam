@@ -55,6 +55,52 @@ body {
   line-height: 1.6;
 }
 
+/* ===== خلفية الهيرو بالشعار ===== */
+.hero-logo-wave {
+  background-image: url('/logo/logo.webp');
+  background-repeat: repeat-x;
+  background-size: 320px 320px;
+  background-position: center;
+  filter: saturate(1.08) contrast(1.08);
+  mix-blend-mode: screen;
+  animation: heroLogoWaveDrift 26s ease-in-out infinite;
+}
+
+.hero-logo-wave-one {
+  clip-path: polygon(0 28%, 9% 37%, 19% 33%, 31% 45%, 43% 36%, 55% 48%, 68% 38%, 81% 49%, 100% 39%, 100% 70%, 83% 62%, 68% 73%, 54% 60%, 41% 71%, 27% 58%, 13% 69%, 0 58%);
+}
+
+.hero-logo-wave-two {
+  background-size: 380px 380px;
+  animation-duration: 32s;
+  animation-direction: reverse;
+  clip-path: polygon(0 36%, 12% 47%, 25% 40%, 38% 55%, 50% 44%, 63% 58%, 76% 48%, 89% 60%, 100% 51%, 100% 82%, 86% 74%, 72% 84%, 59% 72%, 45% 83%, 31% 70%, 16% 80%, 0 68%);
+}
+
+@keyframes heroLogoWaveDrift {
+  0%, 100% {
+    background-position: 0 50%;
+    transform: translate3d(0, 0, 0) skewY(-2deg);
+  }
+
+  50% {
+    background-position: 180px 50%;
+    transform: translate3d(0, 12px, 0) skewY(2deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-logo-wave {
+    background-size: 240px 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo-wave {
+    animation: none;
+  }
+}
+
 /* ===== حاوية الموقع ===== */
 .container {
   max-width: 1280px;
