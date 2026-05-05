@@ -17,16 +17,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  async redirects() {
-    return [
-      {
-        source: '/logo.png',
-        destination: '/logo/logo.webp',
-        permanent: true,
-      },
-    ];
-  },
-
   async headers() {
     return [
       {
