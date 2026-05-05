@@ -123,7 +123,7 @@ async function AdJsonLd({ slug }) {
       '@type': 'Organization',
       name: 'السمام',
       url: 'https://alssemam.com',
-      logo: { '@type': 'ImageObject', url: 'https://alssemam.com/logo.png' }
+      logo: { '@type': 'ImageObject', url: 'https://alssemam.com/logo/logo.webp' }
     }
   };
 

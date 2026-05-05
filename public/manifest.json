@@ -1,21 +1,32 @@
 {
-  "name": "alssemam",
-  "short_name": "semam",
+  "name": "شركة السمام - تطوير مواقع وتطبيقات",
+  "short_name": "alssemam",
+  "description": "شركة السمام - حلول تقنية متكاملة لتطوير الويب وتطبيقات الجوال",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
   "icons": [
     {
-      "src": "/puplic/images/web-app-manifest-192x192.webp",
+      "src": "/web-app-manifest-192x192.webp",
       "sizes": "192x192",
       "type": "image/webp",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
-      "src": "/puplic/images/web-app-manifest-512x512.webp",
+      "src": "/web-app-manifest-512x512.webp",
       "sizes": "512x512",
       "type": "image/webp",
-      "purpose": "maskable"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon0.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#1F4E79",
   "background_color": "#ffffff",
   "display": "standalone"
 }

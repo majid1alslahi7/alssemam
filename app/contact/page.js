@@ -119,7 +119,7 @@ const jsonLd = {
       url: 'https://www.alssemam.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.alssemam.com/logo.png',
+        url: 'https://www.alssemam.com/logo/logo.webp',
         width: 200,
         height: 60,
       },

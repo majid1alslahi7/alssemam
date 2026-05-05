@@ -2,6 +2,7 @@ import { ThemeProvider } from "../src/context/ThemeContext";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+import ChunkLoadRecovery from "@/components/ChunkLoadRecovery";
 import "./globals.css";
 
 export const metadata = {
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
     <html lang="ar" dir="rtl" data-scroll-behavior="smooth">
       <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white antialiased font-cairo">
         <ThemeProvider>
+          <ChunkLoadRecovery />
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />

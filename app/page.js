@@ -30,7 +30,7 @@ function JsonLdSchema() {
         name: 'شركة السمام للتقنية والحلول البرمجية',
         alternateName: 'Alssemam Tech',
         url: 'https://alssemam.com',
-        logo: 'https://alssemam.com/logo.png',
+        logo: 'https://alssemam.com/logo/logo.webp',
         description: 'شركة رائدة في تطوير مواقع الويب وتطبيقات المحمول والحلول التقنية المتكاملة',
         foundingDate: '2016',
         areaServed: ['SA', 'YE', 'AE', 'KW', 'QA', 'BH', 'OM', 'JO', 'EG'],
