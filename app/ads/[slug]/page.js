@@ -1,6 +1,12 @@
 import { supabase } from '@/services/supabase';
 import AdDetailsPage from '@/components/AdDetailsPage';
 
+function addDaysIso(dateValue, days) {
+  const date = new Date(dateValue || '2026-01-01T00:00:00.000Z');
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString();
+}
+
 /* ────────────────────────────────────────
    Dynamic Metadata per Ad
 ─────────────────────────────────────────*/
@@ -150,7 +156,7 @@ async function AdJsonLd({ slug }) {
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         url: pageUrl,
-        priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        priceValidUntil: addDaysIso(ad.updated_at || ad.created_at, 30).split('T')[0],
         seller: {
           '@type': 'Person',
           name: ad.contact_name || 'مستخدم السمام'
@@ -168,7 +174,7 @@ async function AdJsonLd({ slug }) {
       title: ad.title,
       description: ad.description,
       datePosted: ad.created_at,
-      validThrough: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString(),
+      validThrough: addDaysIso(ad.updated_at || ad.created_at, 60),
       hiringOrganization: {
         '@type': 'Organization',
         name: ad.contact_name || 'جهة التوظيف',

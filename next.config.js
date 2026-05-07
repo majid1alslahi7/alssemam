@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+const noStoreHeaders = [
+  { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0' },
+  { key: 'CDN-Cache-Control', value: 'no-store' },
+  { key: 'Surrogate-Control', value: 'no-store' },
+  { key: 'Pragma', value: 'no-cache' },
+  { key: 'Expires', value: '0' },
+];
+
 const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
@@ -23,27 +31,21 @@ const nextConfig = {
         source: '/manifest.json',
         headers: [
           { key: 'Content-Type', value: 'application/manifest+json; charset=utf-8' },
-          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, proxy-revalidate' },
+          ...noStoreHeaders,
         ],
       },
       {
         source: '/sw.js',
         headers: [
-          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, proxy-revalidate' },
+          { key: 'Content-Type', value: 'application/javascript; charset=utf-8' },
+          ...noStoreHeaders,
           { key: 'Service-Worker-Allowed', value: '/' },
-        ],
-      },
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
         ],
       },
       {
         source: '/:path((?!_next/static/).*)',
-        headers: [
-          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate, proxy-revalidate' },
-        ],
+        headers: noStoreHeaders,
       },
     ];
   },

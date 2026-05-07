@@ -17,6 +17,21 @@ import {
 import { getProjects } from '@/services/supabase';
 import AIReadyFAQ from '../src/components/AIReadyFAQ';
 
+const particleMetric = (seed, min, max) => {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  const normalized = value - Math.floor(value);
+  return min + normalized * (max - min);
+};
+
+const floatingParticles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  size: particleMetric(i + 1, 1, 5),
+  x: particleMetric(i + 21, 0, 100),
+  y: particleMetric(i + 41, 0, 100),
+  duration: particleMetric(i + 61, 10, 25),
+  delay: particleMetric(i + 81, 0, 5),
+}));
+
 // ============================================================
 // JSON-LD Schema Component
 // ============================================================
@@ -90,21 +105,9 @@ function JsonLdSchema() {
 // Floating Particles Background
 // ============================================================
 function Particles() {
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 20 }, (_, i) => ({
-        id: i,
-        size: Math.random() * 4 + 1,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        duration: Math.random() * 15 + 10,
-        delay: Math.random() * 5,
-      })),
-    []
-  );
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {particles.map((p) => (
+      {floatingParticles.map((p) => (
         <motion.div
           key={p.id}
           className="absolute rounded-full bg-white/10"
@@ -296,7 +299,7 @@ function TestimonialCard({ name, role, company, text, rating, index }) {
             <FaStar key={i} className="text-yellow-400" size={14} />
           ))}
         </div>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm">"{text}"</p>
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm">&quot;{text}&quot;</p>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">
             {name.charAt(0)}

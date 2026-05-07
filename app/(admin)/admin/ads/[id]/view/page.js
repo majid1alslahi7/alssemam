@@ -1,6 +1,6 @@
 'use client';
 import { supabase } from '@/services/supabase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FaArrowRight, FaEdit, FaTrash, FaBullhorn, FaUser, FaPhone, FaEnvelope, FaMapMarkerAlt, FaCalendar, FaEye, FaDollarSign, FaStar, FaWhatsapp, FaImage } from 'react-icons/fa';
@@ -12,13 +12,16 @@ export default function ViewAdPage() {
   const [ad, setAd] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { if (id) loadAd(); }, [id]);
-
-  const loadAd = async () => {
+  const loadAd = useCallback(async () => {
     const { data } = await supabase.from('classified_ads').select('*').eq('id', id).single();
     setAd(data);
     setLoading(false);
-  };
+  }, [id]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (id) loadAd();
+  }, [id, loadAd]);
 
   const handleDelete = async () => {
     if (confirm('هل أنت متأكد من حذف هذا الإعلان؟')) {

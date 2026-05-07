@@ -1,5 +1,6 @@
 'use client';
 import { supabase } from '@/services/supabase';
+import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
 import { FaLightbulb, FaSearch, FaCheckCircle, FaTimesCircle, FaEye } from 'react-icons/fa';

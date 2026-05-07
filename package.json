@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "prebuild": "node scripts/clean-next-build.mjs",
     "build": "next build --webpack",
-    "postbuild": "node scripts/prepare-standalone.mjs",
+    "postbuild": "node scripts/prepare-standalone.mjs && node scripts/verify-next-build.mjs",
     "start": "node .next/standalone/server.js",
     "start:next": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.9.0",
